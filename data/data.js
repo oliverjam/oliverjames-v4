@@ -1,4 +1,4 @@
-import { join, parse } from "../deps.js";
+import { join, parse, walkSync } from "../deps.js";
 import { markdown } from "../lib/markdown.js";
 
 export default async function () {
@@ -31,9 +31,16 @@ export default async function () {
     }
   }
 
+  let style_files = walkSync("styles", { includeDirs: false, exts: [".css"] });
+  let styles = await Promise.all(Array.from(style_files, read_style));
+
   function slug(s) {
     return s.replace(/\W/g, "-");
   }
 
-  return { posts, tags, slug };
+  return { posts, tags, slug, styles: new Map(styles) };
+}
+
+async function read_style(entry) {
+  return [entry.name, await Deno.readTextFile(entry.path)];
 }
