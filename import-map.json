@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jsx/jsx-runtime": "./lib/jsx/jsx-runtime.js"
+  }
+}

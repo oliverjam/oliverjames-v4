@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "build": "deno run --allow-read --allow-write lib/build.js",
+    "dev": "deno run --allow-read --allow-write lib/build.js"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "jsx"
+  },
+  "importMap": "./import-map.json",
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": ["prefer-const"]
+    }
+  }
+}
