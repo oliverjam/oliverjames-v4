@@ -36,3 +36,131 @@ h4,
 h5 {
   line-height: 1.1;
 }
+
+html {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --shade-1: hsl(90, 90%, 98%);
+  --shade-2: hsl(94, 82%, 92%);
+  --shade-3: hsl(98, 72%, 87%);
+  --shade-4: hsl(106, 60%, 75%);
+  --shade-5: hsl(110, 54%, 61%);
+  --shade-6: hsl(114, 50%, 48%);
+  --shade-7: hsl(118, 48%, 42%);
+  --shade-8: hsl(122, 48%, 34%);
+  --shade-9: hsl(126, 45%, 27%);
+  --shade-10: hsl(130, 42%, 23%);
+  --shade-11: hsl(134, 40%, 18%);
+  --shade-12: hsl(138, 38%, 8%);
+  --text: var(--shade-9);
+  --text-bright: var(--shade-6);
+  --bg: var(--shade-1);
+  --bg-dim: var(--shade-2);
+  --gutter: var(--space-8);
+  font-size: 125%;
+  color: var(--text);
+  background-color: var(--bg);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --shade-1: hsl(140, 80%, 96%);
+    --shade-2: hsl(144, 72%, 92%);
+    --shade-3: hsl(148, 62%, 87%);
+    --shade-4: hsl(156, 50%, 75%);
+    --shade-5: hsl(160, 44%, 61%);
+    --shade-6: hsl(164, 40%, 50%);
+    --shade-7: hsl(168, 38%, 42%);
+    --shade-8: hsl(172, 38%, 34%);
+    --shade-9: hsl(176, 35%, 27%);
+    --shade-10: hsl(180, 32%, 23%);
+    --shade-11: hsl(184, 30%, 18%);
+    --shade-12: hsl(188, 28%, 8%);
+    --text: var(--shade-1);
+    --bg: var(--shade-12);
+    --bg-dim: var(--shade-11);
+  }
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  font-family: "Spectral", georgia, serif;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  /* !IMPORTANT stops horizontal overflow/blowout */
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-1 {
+  gap: var(--space-1);
+}
+.gap-2 {
+  gap: var(--space-2);
+}
+.gap-3 {
+  gap: var(--space-3);
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-5 {
+  gap: var(--space-5);
+}
+.gap-6 {
+  gap: var(--space-6);
+}
+.gap-6 {
+  gap: var(--space-7);
+}
+.gap-6 {
+  gap: var(--space-8);
+}
+
+.py-6 {
+  padding-block: var(--space-6);
+}
+
+.py-8 {
+  padding-block: var(--space-8);
+}
+
+.gutter {
+  padding-inline: var(--gutter);
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.aria-current\:font-bold[aria-current="true"],
+.aria-current\:font-bold[aria-current="page"] {
+  font-weight: bold;
+}
+
+.color-bright {
+  color: var(--text-bright);
+}

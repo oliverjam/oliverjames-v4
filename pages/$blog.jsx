@@ -5,6 +5,7 @@ export default ({ posts }) => {
     return {
       url: `/blog/${slug}.html`,
       component: <Post title={rest.title}>{content}</Post>,
+      page_style: "blog.css",
       ...rest,
     };
   });
@@ -12,9 +13,11 @@ export default ({ posts }) => {
 
 function Post({ title, children }) {
   return (
-    <main>
-      <h1>{title}</h1>
-      <div>{children}</div>
-    </main>
+    <div class="wrapper">
+      <header class="py-6">
+        <h1>{title}</h1>
+      </header>
+      {children}
+    </div>
   );
 }

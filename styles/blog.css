@@ -1,0 +1,35 @@
+.wrapper {
+  max-inline-size: 72ch;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+.wrapper > :not(pre) {
+  padding-inline: var(--gutter);
+}
+
+.wrapper > * + * {
+  margin-top: var(--space-4);
+}
+
+.wrapper :is(h2, h3, h4, h5, h6) {
+  margin-top: 2em;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 1.5rem + 3vw, 3.5rem);
+}
+
+code {
+  border-radius: 2px;
+  padding: var(--space-1);
+  font-size: 0.875rem;
+  font-family: ui-monospace, monospace;
+  background-color: var(--bg-dim);
+}
+
+pre {
+  overflow: auto;
+  padding: var(--space-4) var(--gutter);
+  background-color: var(--bg-dim);
+}
