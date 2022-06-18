@@ -103,6 +103,14 @@ body {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
 .gap-1 {
   gap: var(--space-1);
 }
@@ -126,6 +134,14 @@ body {
 }
 .gap-6 {
   gap: var(--space-8);
+}
+
+.py-1 {
+  padding-inline: var(--space-2);
+}
+
+.px-2 {
+  padding-inline: var(--space-2);
 }
 
 .py-6 {
@@ -156,6 +172,15 @@ body {
   text-align: center;
 }
 
+.font-bold {
+  font-weight: bold;
+}
+
+.text-small,
+small {
+  font-size: 0.875rem;
+}
+
 .aria-current\:font-bold[aria-current="true"],
 .aria-current\:font-bold[aria-current="page"] {
   font-weight: bold;
@@ -163,4 +188,8 @@ body {
 
 .color-bright {
   color: var(--text-bright);
+}
+
+.bg-dim {
+  background-color: var(--bg-dim);
 }

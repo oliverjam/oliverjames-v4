@@ -1,7 +1,10 @@
+import { slug } from "../lib/slug.js";
+
 export { default as layout } from "../layouts/base.jsx";
+
 export let url = `/blog/tags.html`;
 
-export default ({ tags, slug }) => {
+export default ({ tags }) => {
   return (
     <ul>
       {Array.from(tags).map(([tag, posts]) => (

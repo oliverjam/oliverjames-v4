@@ -1,21 +1,8 @@
+import { slug } from "../lib/slug.js";
+
 export { default as layout } from "../layouts/base.jsx";
 
-export default ({ tags, slug }) => {
-  function Tag({ name, posts }) {
-    return (
-      <main>
-        <h1>Posts tagged with "{name}"</h1>
-        <ul>
-          {posts.map((post) => (
-            <li>
-              <a href={`/blog/${slug(post.slug)}`}>{post.title}</a>
-            </li>
-          ))}
-        </ul>
-      </main>
-    );
-  }
-
+export default ({ tags }) => {
   return Array.from(tags).map(([tag, posts]) => {
     return {
       url: `/blog/tags/${slug(tag)}.html`,
@@ -24,3 +11,18 @@ export default ({ tags, slug }) => {
     };
   });
 };
+
+function Tag({ name, posts }) {
+  return (
+    <main>
+      <h1>Posts tagged with "{name}"</h1>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${slug(post.slug)}`}>{post.title}</a>
+          </li>
+        ))}
+      </ul>
+    </main>
+  );
+}

@@ -34,11 +34,7 @@ export default async function () {
   let style_files = walkSync("styles", { includeDirs: false, exts: [".css"] });
   let styles = await Promise.all(Array.from(style_files, read_style));
 
-  function slug(s) {
-    return s.replace(/\W/g, "-");
-  }
-
-  return { posts, tags, slug, styles: new Map(styles) };
+  return { posts, tags, styles: new Map(styles) };
 }
 
 async function read_style(entry) {

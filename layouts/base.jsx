@@ -1,3 +1,5 @@
+import { Icon } from "../components/icon.jsx";
+
 export default ({ title, children, styles, page_style, url }) => {
   return (
     <html lang="en">
@@ -86,14 +88,6 @@ function NavLink({ current = "", to, children }) {
         {children}
       </a>
     </li>
-  );
-}
-
-function Icon({ size = "20", name, ...rest }) {
-  return (
-    <svg {...rest} width={size} height={size}>
-      <use href={`/assets/sprite.svg#${name}`} />
-    </svg>
   );
 }
 
