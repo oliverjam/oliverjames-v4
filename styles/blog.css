@@ -14,6 +14,21 @@
 
 .wrapper :is(h2, h3, h4, h5, h6) {
   margin-top: 2em;
+  position: relative;
+}
+
+.hash::before {
+  content: "#";
+  font-size: 1.125rem;
+  position: absolute;
+  top: 0.25rem;
+  left: calc(var(--gutter) / 2);
+  opacity: 0.33;
+  transition: opacity 0.2s;
+}
+
+.hash:hover::before {
+  opacity: 1;
 }
 
 h1 {

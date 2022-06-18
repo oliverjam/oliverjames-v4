@@ -67,6 +67,8 @@ html {
   color: var(--text);
   background-color: var(--bg);
   color-scheme: light dark;
+  scroll-padding-block: var(--space-6);
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,6 +88,12 @@ html {
     --text: var(--shade-1);
     --bg: var(--shade-12);
     --bg-dim: var(--shade-11);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
