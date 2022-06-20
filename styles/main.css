@@ -60,6 +60,10 @@ html {
   --shade-12: hsl(138, 38%, 8%);
   --text: var(--shade-9);
   --text-bright: var(--shade-6);
+  --code-1: var(--shade-5);
+  --code-2: var(--shade-7);
+  --code-3: var(--shade-8);
+  --code-4: var(--shade-9);
   --bg: var(--shade-1);
   --bg-dim: var(--shade-2);
   --gutter: var(--space-8);
@@ -86,6 +90,10 @@ html {
     --shade-11: hsl(184, 30%, 18%);
     --shade-12: hsl(188, 28%, 8%);
     --text: var(--shade-1);
+    --code-1: var(--shade-7);
+    --code-2: var(--shade-6);
+    --code-3: var(--shade-4);
+    --code-4: var(--shade-3);
     --bg: var(--shade-12);
     --bg-dim: var(--shade-11);
   }

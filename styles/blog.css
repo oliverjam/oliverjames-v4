@@ -1,34 +1,49 @@
-.wrapper {
-  max-inline-size: 72ch;
+.h-entry {
+  max-inline-size: 76ch;
   margin-inline: auto;
   line-height: 1.6;
 }
 
-.wrapper > :not(pre) {
+.h-entry > header,
+.e-content > :not(:is(pre, img)) {
   padding-inline: var(--gutter);
 }
 
-.wrapper > * + * {
+.e-content > * + * {
   margin-top: var(--space-4);
 }
 
-.wrapper :is(h2, h3, h4, h5, h6) {
+.e-content :is(h2, h3, h4, h5, h6) {
   margin-top: 2em;
   position: relative;
 }
 
-.hash::before {
+.e-content a {
+  text-decoration: underline;
+}
+
+.e-content .hash {
+  text-decoration: none;
+}
+
+.e-content .hash::before {
   content: "#";
   font-size: 1.125rem;
   position: absolute;
-  top: 0.25rem;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
   left: calc(var(--gutter) / 2);
   opacity: 0.33;
   transition: opacity 0.2s;
 }
 
-.hash:hover::before {
+.e-content .hash:hover::before {
   opacity: 1;
+}
+
+.e-content :is(ol, ul) {
+  list-style-position: inside;
 }
 
 h1 {
@@ -36,15 +51,63 @@ h1 {
 }
 
 code {
+  box-decoration-break: clone;
   border-radius: 2px;
   padding: var(--space-1);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-family: ui-monospace, monospace;
   background-color: var(--bg-dim);
 }
 
-pre {
-  overflow: auto;
+pre > code {
+  display: block;
   padding: var(--space-4) var(--gutter);
+  line-height: 1.375;
   background-color: var(--bg-dim);
+  overflow: auto;
+  scrollbar-color: var(--text-bright) var(--bg-dim);
+  scrollbar-width: thin;
+}
+
+pre > code::-webkit-scrollbar {
+  height: var(--space-1);
+}
+
+pre > code::-webkit-scrollbar-thumb {
+  background: var(--text-bright);
+  border-radius: 1rem;
+}
+
+pre > code::-webkit-scrollbar-track {
+  background: var(--bg-dim);
+}
+
+pre,
+.token {
+  color: var(--code-3);
+}
+
+.token:is(.punctuation, .comment) {
+  color: var(--code-1);
+}
+
+.token:is(.keyword, .unit) {
+  color: var(--code-2);
+}
+
+.token:is(.attr-name, .attr-value) {
+  font-weight: normal;
+}
+
+.token:is(.key, .property, .attr-value) {
+  color: var(--code-4);
+}
+
+.token:is(.comment) {
+  font-style: italic;
+}
+
+.token:is(.function, .tag, .selector) {
+  color: var(--code-4);
+  font-weight: bold;
 }

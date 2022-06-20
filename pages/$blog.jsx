@@ -22,9 +22,9 @@ export default ({ posts }) => {
 
   function Post({ title, children, date, time, tags = [] }) {
     return (
-      <div class="wrapper">
+      <div class="h-entry">
         <header class="py-6 grid gap-1">
-          <h1>{title}</h1>
+          <h1 class="p-name">{title}</h1>
           <small class="flex items-center gap-1">
             <Icon name="calendar" class="color-bright" />
             <ReadableDate>{date}</ReadableDate>
@@ -39,7 +39,7 @@ export default ({ posts }) => {
             ))}
           </ul>
         </header>
-        {children}
+        <article class="e-content">{children}</article>
       </div>
     );
   }
@@ -47,7 +47,11 @@ export default ({ posts }) => {
 
 function ReadableDate({ children }) {
   return (
-    <time datetime={children.toString()} title={children.toString()}>
+    <time
+      datetime={children.toString()}
+      title={children.toString()}
+      class="dt-published"
+    >
       {dates.readable(children)}
     </time>
   );
@@ -55,7 +59,7 @@ function ReadableDate({ children }) {
 
 function Tag({ children }) {
   return (
-    <li class="text-small py-1 px-2 bg-dim">
+    <li class="text-small py-1 px-2 bg-dim p-category font-bold">
       <a href={`/blog/tags/${slug(children)}`}>{children}</a>
     </li>
   );
