@@ -10,7 +10,7 @@ Deno.test("render module renders JSX to string", () => {
 Deno.test("render module renders void elements without closing tag", () => {
   let content = <input type="number" />;
   let result = render(content);
-  assertEquals(result, `<input type="number">`);
+  assertEquals(result, `<input type="number" />`);
 });
 
 Deno.test("render module sets boolean attributes correctly", () => {
