@@ -1,19 +1,21 @@
+import { Layout } from "../layouts/list.jsx";
+import { Tag } from "../components/tag.jsx";
 import { slug } from "../lib/slug.js";
 
-export { default as layout } from "../layouts/base.jsx";
+export let url = `/tags.html`;
 
-export let url = `/blog/tags.html`;
-
-export default ({ tags }) => {
+export default (data) => {
   return (
-    <ul>
-      {Array.from(tags).map(([tag, posts]) => (
-        <li>
-          <a href={`/blog/tags/${slug(tag)}`}>
-            <b>{tag}</b> {posts.length}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <Layout {...data} title="All tags">
+      <ul class="flex wrap gap-4">
+        {Array.from(data.tags)
+          .sort((a, b) => b[1].length - a[1].length)
+          .map(([tag, posts]) => (
+            <Tag slug={slug(tag)} size="md">
+              <b>{tag}</b> {posts.length}
+            </Tag>
+          ))}
+      </ul>
+    </Layout>
   );
 };
