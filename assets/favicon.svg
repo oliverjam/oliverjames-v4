@@ -1,9 +1,11 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  view-box="0 0 32 32"
+  viewbox="0 0 32 32"
   fill="none"
   stroke="#49b83d"
-  stroke-width="3.5"
+  stroke-width="3"
+  width="32"
+  height="32"
 >
   <defs>
     <style>

@@ -108,11 +108,11 @@ function to(current, to) {
 function Logo({ size }) {
   return (
     <svg
-      view-box="0 0 32 32"
+      viewbox="0 0 32 32"
       fill="none"
       class="color-bright"
-      stroke="currentColor"
-      stroke-width="3.5"
+      stroke="currentcolor"
+      stroke-width="3"
       width={size}
       height={size}
     >
