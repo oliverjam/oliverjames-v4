@@ -1,28 +1,25 @@
+import { Layout } from "../layouts/list.jsx";
 import { slug } from "../lib/slug.js";
+import { PostLink } from "../components/post.jsx";
 
-export { default as layout } from "../layouts/base.jsx";
-
-export default ({ tags }) => {
+export default (data) => {
+  let { tags } = data;
   return Array.from(tags).map(([tag, posts]) => {
+    let url = `/tags/${slug(tag)}.html`;
+    let title = `‘${tag}’ archive`;
     return {
-      url: `/blog/tags/${slug(tag)}.html`,
-      component: <Tag name={tag} posts={posts} />,
-      title: tag[0].toUpperCase() + tag.slice(1) + " posts",
+      url,
+      component: (
+        <Layout {...data} url={url} title={title}>
+          <ul class="grid gap-5">
+            {posts.map((post) => (
+              <li>
+                <PostLink {...post} size="md" />
+              </li>
+            ))}
+          </ul>
+        </Layout>
+      ),
     };
   });
 };
-
-function Tag({ name, posts }) {
-  return (
-    <main>
-      <h1>Posts tagged with "{name}"</h1>
-      <ul>
-        {posts.map((post) => (
-          <li>
-            <a href={`/blog/${slug(post.slug)}`}>{post.title}</a>
-          </li>
-        ))}
-      </ul>
-    </main>
-  );
-}
