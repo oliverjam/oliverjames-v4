@@ -1,3 +1,82 @@
+html {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-9: 4rem;
+  --shade-1: hsl(90, 90%, 98%);
+  --shade-2: hsl(94, 82%, 92%);
+  --shade-3: hsl(98, 72%, 87%);
+  --shade-4: hsl(106, 60%, 75%);
+  --shade-5: hsl(110, 54%, 61%);
+  --shade-6: hsl(114, 50%, 48%);
+  --shade-7: hsl(118, 48%, 42%);
+  --shade-8: hsl(122, 48%, 34%);
+  --shade-9: hsl(126, 45%, 27%);
+  --shade-10: hsl(130, 42%, 23%);
+  --shade-11: hsl(134, 40%, 18%);
+  --shade-12: hsl(138, 38%, 8%);
+  --contrast: hsl(30, 80%, 60%);
+  --text: var(--shade-9);
+  --text-bright: var(--shade-6);
+  --code-1: var(--shade-5);
+  --code-2: var(--shade-7);
+  --code-3: var(--shade-8);
+  --code-4: var(--shade-9);
+  --bg: var(--shade-1);
+  --bg-dim: var(--shade-2);
+  --gutter: clamp(var(--space-4), var(--space-4) + 2vw, var(--space-8));
+  --font-1: 0.75rem;
+  --font-2: 0.875rem;
+  --font-3: 1rem;
+  --font-4: 1.25rem;
+  --font-5: 1.5rem;
+  --font-6: 2rem;
+  --font-7: 2.75rem;
+  --font-8: 3.5rem;
+  font-size: clamp(100%, 100% + 0.125vw, 125%);
+  color: var(--text);
+  background-color: var(--bg);
+  color-scheme: light dark;
+  scroll-padding-block: var(--space-6);
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --shade-1: hsl(140, 80%, 96%);
+    --shade-2: hsl(144, 72%, 92%);
+    --shade-3: hsl(148, 62%, 87%);
+    --shade-4: hsl(156, 50%, 75%);
+    --shade-5: hsl(160, 44%, 61%);
+    --shade-6: hsl(164, 40%, 50%);
+    --shade-7: hsl(168, 38%, 42%);
+    --shade-8: hsl(172, 38%, 34%);
+    --shade-9: hsl(176, 35%, 27%);
+    --shade-10: hsl(180, 32%, 23%);
+    --shade-11: hsl(184, 30%, 15%);
+    --shade-12: hsl(188, 28%, 8%);
+    --text: var(--shade-1);
+    --code-1: var(--shade-7);
+    --code-2: var(--shade-6);
+    --code-3: var(--shade-4);
+    --code-4: var(--shade-3);
+    --bg: var(--shade-12);
+    --bg-dim: var(--shade-11);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -12,9 +91,25 @@ a:hover {
   text-decoration-line: underline;
 }
 
-a:focus {
-  outline: 0.25rem solid var(--primaryShadow);
-  outline-offset: 0.25rem;
+:is(a, input):focus {
+  outline: 0.125rem solid var(--contrast);
+  outline-offset: 0.125rem;
+  border-radius: 2px;
+}
+
+:is(a, input):focus:not(:focus-visible) {
+  outline: 0;
+}
+
+input {
+  border: 0;
+  border-radius: 2px;
+  color: inherit;
+}
+
+input::placeholder {
+  color: var(--code-3);
+  opacity: 1;
 }
 
 img,
@@ -37,74 +132,6 @@ h5 {
   line-height: 1.1;
 }
 
-html {
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-7: 1.75rem;
-  --space-8: 2rem;
-  --shade-1: hsl(90, 90%, 98%);
-  --shade-2: hsl(94, 82%, 92%);
-  --shade-3: hsl(98, 72%, 87%);
-  --shade-4: hsl(106, 60%, 75%);
-  --shade-5: hsl(110, 54%, 61%);
-  --shade-6: hsl(114, 50%, 48%);
-  --shade-7: hsl(118, 48%, 42%);
-  --shade-8: hsl(122, 48%, 34%);
-  --shade-9: hsl(126, 45%, 27%);
-  --shade-10: hsl(130, 42%, 23%);
-  --shade-11: hsl(134, 40%, 18%);
-  --shade-12: hsl(138, 38%, 8%);
-  --text: var(--shade-9);
-  --text-bright: var(--shade-6);
-  --code-1: var(--shade-5);
-  --code-2: var(--shade-7);
-  --code-3: var(--shade-8);
-  --code-4: var(--shade-9);
-  --bg: var(--shade-1);
-  --bg-dim: var(--shade-2);
-  --gutter: var(--space-8);
-  font-size: 125%;
-  color: var(--text);
-  background-color: var(--bg);
-  color-scheme: light dark;
-  scroll-padding-block: var(--space-6);
-  scroll-behavior: smooth;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    --shade-1: hsl(140, 80%, 96%);
-    --shade-2: hsl(144, 72%, 92%);
-    --shade-3: hsl(148, 62%, 87%);
-    --shade-4: hsl(156, 50%, 75%);
-    --shade-5: hsl(160, 44%, 61%);
-    --shade-6: hsl(164, 40%, 50%);
-    --shade-7: hsl(168, 38%, 42%);
-    --shade-8: hsl(172, 38%, 34%);
-    --shade-9: hsl(176, 35%, 27%);
-    --shade-10: hsl(180, 32%, 23%);
-    --shade-11: hsl(184, 30%, 18%);
-    --shade-12: hsl(188, 28%, 8%);
-    --text: var(--shade-1);
-    --code-1: var(--shade-7);
-    --code-2: var(--shade-6);
-    --code-3: var(--shade-4);
-    --code-4: var(--shade-3);
-    --bg: var(--shade-12);
-    --bg-dim: var(--shade-11);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
 body {
   font-family: system-ui, sans-serif;
   font-family: "Spectral", georgia, serif;
@@ -115,12 +142,20 @@ body {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
 
 .grid {
   display: grid;
+}
+
+.pile > * {
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 .wrap {
@@ -145,19 +180,30 @@ body {
 .gap-6 {
   gap: var(--space-6);
 }
-.gap-6 {
+.gap-7 {
   gap: var(--space-7);
 }
-.gap-6 {
+.gap-8 {
   gap: var(--space-8);
+}
+.gap-1-5 {
+  gap: clamp(var(--space-1), var(--space-1) + 2vw, var(--space-5));
 }
 
 .py-1 {
-  padding-inline: var(--space-2);
+  padding-block: var(--space-1);
 }
 
 .px-2 {
   padding-inline: var(--space-2);
+}
+
+.py-3 {
+  padding-block: var(--space-3);
+}
+
+.px-3 {
+  padding-inline: var(--space-3);
 }
 
 .py-6 {
@@ -166,6 +212,22 @@ body {
 
 .py-8 {
   padding-block: var(--space-8);
+}
+
+.pt-8 {
+  padding-block-start: var(--space-8);
+}
+
+.pb-9 {
+  padding-block-end: var(--space-9);
+}
+
+.ml-2 {
+  margin-inline-start: var(--space-2);
+}
+
+.pl-8 {
+  padding-inline-start: var(--space-8);
 }
 
 .gutter {
@@ -194,12 +256,25 @@ body {
 
 .text-small,
 small {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
-.aria-current\:font-bold[aria-current="true"],
-.aria-current\:font-bold[aria-current="page"] {
-  font-weight: bold;
+a[aria-current]:hover {
+  text-decoration: none;
+}
+
+a[aria-current] > svg {
+  transition: transform 0.2s;
+}
+
+a[aria-current]:hover > svg {
+  transform: rotate(-30deg);
+}
+
+a[aria-current="true"] > svg,
+a[aria-current="page"] > svg {
+  /* border-block-end: 0.125rem solid var(--text-bright); */
+  color: var(--contrast);
 }
 
 .color-bright {
@@ -208,4 +283,85 @@ small {
 
 .bg-dim {
   background-color: var(--bg-dim);
+}
+
+.bg-contrast {
+  background-color: var(--contrast);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.max-w-home {
+  max-inline-size: 70rem;
+}
+
+.max-w-content {
+  max-inline-size: 38rem;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.font-1 {
+  font-size: var(--font-1);
+}
+.font-2 {
+  font-size: var(--font-2);
+}
+.font-3 {
+  font-size: var(--font-3);
+}
+.font-4 {
+  font-size: var(--font-4);
+}
+.font-5 {
+  font-size: var(--font-5);
+}
+.font-6 {
+  font-size: var(--font-6);
+}
+.font-7 {
+  font-size: var(--font-7);
+}
+.font-8 {
+  font-size: var(--font-8);
+}
+.font-5-8 {
+  font-size: clamp(var(--font-5), var(--font-5) + 3vw, var(--font-8));
+}
+
+.skip {
+  position: absolute;
+}
+
+.skip:not(:focus):not(:active) {
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.switcher {
+  --gap: 1rem;
+  --break: 40rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--break) - (100% - var(--gap))) * 999);
 }
