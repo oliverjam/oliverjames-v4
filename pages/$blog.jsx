@@ -1,66 +1,98 @@
+import { Layout } from "../layouts/base.jsx";
 import { Icon } from "../components/icon.jsx";
-import * as dates from "../lib/dates.js";
+import { Tag } from "../components/tag.jsx";
+import { ReadableDate } from "../components/dates.jsx";
+import { PostLink } from "../components/post.jsx";
 import { slug } from "../lib/slug.js";
+import { related } from "../lib/related.js";
 
-export { default as layout } from "../layouts/base.jsx";
-
-export default ({ posts }) => {
-  return posts.map(({ slug, content, ...rest }) => {
-    let time = dates.reading_time(content);
+export default (data) => {
+  let { posts, tags } = data;
+  return posts.map((post, index) => {
+    let prev = posts[index + 1];
+    let next = posts[index - 1];
+    let url = `/blog/${post.slug}.html`;
     return {
-      url: `/blog/${slug}.html`,
+      url,
       component: (
-        <Post title={rest.title} date={rest.date} time={time} tags={rest.tags}>
-          {content}
-        </Post>
+        <Layout {...data} url={url} title={post.title} page_style="blog.css">
+          <Post
+            prev={prev}
+            next={next}
+            title={post.title}
+            date={post.date}
+            time={post.time}
+            tags={post.tags}
+            related={related(post, tags, prev, next)}
+          >
+            {post.content}
+          </Post>
+        </Layout>
       ),
-      page_style: "blog.css",
-      reading_time: time,
-      ...rest,
     };
   });
 
-  function Post({ title, children, date, time, tags = [] }) {
+  function Post({
+    title,
+    children,
+    date,
+    time,
+    tags = [],
+    prev,
+    next,
+    related,
+  }) {
     return (
-      <div class="h-entry">
-        <header class="py-6 grid gap-1">
-          <h1 class="p-name">{title}</h1>
-          <small class="flex items-center gap-1">
+      <div class="h-entry max-w-content mx-auto pb-9">
+        <header class="grid gap-1 gutter">
+          <h1 class="p-name font-5-8">{title}</h1>
+          <span class="flex items-center gap-1 font-3">
             <Icon name="calendar" class="color-bright" />
             <ReadableDate>{date}</ReadableDate>
-          </small>
-          <small class="flex items-center gap-1">
+          </span>
+          <span class="flex items-center gap-1 font-3">
             <Icon name="clock" class="color-bright" />
             {(time / 60).toFixed(1)} minute read
-          </small>
+          </span>
           <ul class="flex wrap gap-2">
             {tags.map((tag) => (
-              <Tag>{tag}</Tag>
+              <Tag slug={slug(tag)}>
+                <b>{tag}</b>
+              </Tag>
             ))}
           </ul>
         </header>
-        <article class="e-content">{children}</article>
+        <article class="e-content pt-8 pb-9">{children}</article>
+        <div
+          class="bg-dim grid gap-5 py-8 gutter"
+          style="border-top: var(--space-1) solid var(--contrast)"
+        >
+          {prev && (
+            <div class="grid gap-3">
+              <h3 class="font-3">Previous</h3>
+              <PostLink rel="prev" {...prev} />
+            </div>
+          )}
+          {next && (
+            <div class="grid gap-3">
+              <h3 class="font-3">Next</h3>
+              <PostLink rel="next" {...next} />
+            </div>
+          )}
+          {related?.length && (
+            <div class="grid gap-3">
+              <h3 class="font-3">Related</h3>
+              <ul class="grid gap-3">
+                {related.map((post) => (
+                  <li>
+                    <PostLink {...post} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
 };
-
-function ReadableDate({ children }) {
-  return (
-    <time
-      datetime={children.toString()}
-      title={children.toString()}
-      class="dt-published"
-    >
-      {dates.readable(children)}
-    </time>
-  );
-}
-
-function Tag({ children }) {
-  return (
-    <li class="text-small py-1 px-2 bg-dim p-category font-bold">
-      <a href={`/blog/tags/${slug(children)}`}>{children}</a>
-    </li>
-  );
-}

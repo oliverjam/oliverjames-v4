@@ -1,5 +1,6 @@
 import { join, parse, walkSync } from "../deps.js";
 import { markdown } from "../lib/markdown.js";
+import { reading_time } from "../lib/dates.js";
 
 export default async function () {
   let files = Array.from(Deno.readDirSync("blog"));
@@ -9,14 +10,17 @@ export default async function () {
         let raw = await Deno.readTextFile(join("blog", entry.name));
         let { data, content } = markdown(raw);
         let { name } = parse(entry.name);
-        return { slug: name, ...data, content };
+        let time = reading_time(content);
+        return { slug: name, time, ...data, content };
       } catch (error) {
         console.error(`Error reading blog '${entry.name}'`);
         console.error(error);
       }
     })
   );
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  posts = posts
+    .filter((p) => !p.draft)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   let tags = new Map();
   for (let post of posts) {
