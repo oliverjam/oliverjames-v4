@@ -1,5 +1,9 @@
 ---
 title: Avoiding 404 errors with Single-Page Apps
+tags:
+  - deploy
+  - beginner
+  - netlify
 date: 2021-06-11
 ---
 

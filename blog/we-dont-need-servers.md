@@ -24,7 +24,7 @@ You can `npm install -g netlify-cli` to give you access to the `netlify` command
 
 ### Getting started with Functions
 
-First we need to tell Netlify where our Functions will live. Create a `.netlify.toml` file at the root of your project. This allows us to configure all of Netlify's features within our repo.
+First we need to tell Netlify where our Functions will live. Create a `netlify.toml` file at the root of your project. This allows us to configure all of Netlify's features within our repo.
 
 ```toml
 [build]

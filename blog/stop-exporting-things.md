@@ -69,6 +69,6 @@ Sharing code always comes with overhead. Once something is in its own file and e
 
 If you definitely need a component in another place then it might be time to extract it to a new file. I would resist this until it's really obvious that you need it though.
 
-If the component needs to be a bit different in the second place just copy/paste it and tweak the copied version. Making reusable components that fit lots of use-cases is _hard_—most of the time you just end up with a franken-component that takes forty props and renders a totally different set of JSX for each one.
+If the component needs to be a bit different in the second place just copy/paste it and tweak the copied version. Making reusable components that fit lots of use-cases is _hard_ - most of the time you just end up with a franken-component that takes forty props and renders a totally different set of JSX for each one.
 
 If you definitely, truly, need the exact same component in another place then sure, move it to its own file and export it. Just be aware that you've now committed to maintaining this as something that could hypothetically be used all over the codebase.
