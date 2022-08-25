@@ -1,11 +1,11 @@
 import { Icon } from "../components/icon.jsx";
 
-export default ({ title, children, styles, page_style, url }) => {
+export function Layout({ title, children, styles, page_style, url }) {
   return (
     <html lang="en">
       <head>
         <meta charset="utf-8" />
-        <title>{title || "oliverjam.es"}</title>
+        <title>{`${title} | oliverjam.es`}</title>
         <link rel="icon" href="/assets/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,22 +20,43 @@ export default ({ title, children, styles, page_style, url }) => {
         )}
       </head>
       <body>
-        <header class="flex gap-6 items-center justify-between py-6 gutter">
-          <a href="/" aria-label="home" class="flex">
+        <a class="skip py-1 px-2" href="#main">
+          Skip to content
+        </a>
+        <header class="w-100 max-w-home mx-auto flex gap-6 items-center justify-between py-8 gutter lh-1">
+          <a {...to(url, "/")} aria-label="home" class="flex">
             <Logo size="44" />
           </a>
           <nav>
-            <ul class="flex gap-5">
-              <NavLink to="/blog" current={url}>
-                <Icon size="24" name="document" class="color-bright" /> Blog
-              </NavLink>
-              <NavLink to="/blog/search" current={url}>
-                <Icon size="24" name="search" class="color-bright" /> Search
-              </NavLink>
+            <ul class="flex gap-1-5">
+              <li>
+                <a
+                  {...to(url, "/blog")}
+                  class="nav-link flex gap-1 items-center"
+                >
+                  <Icon size="20" name="document" class="color-bright" /> Blog
+                </a>
+              </li>
+              <li>
+                <a
+                  {...to(url, "/tags")}
+                  class="nav-link flex gap-1 items-center"
+                >
+                  <Icon size="20" name="tag" class="color-bright" /> Tags
+                </a>
+              </li>
+              <li>
+                <a
+                  {...to(url, "/feed.xml")}
+                  class="nav-link flex gap-1 items-center"
+                >
+                  <Icon size="20" name="rss" class="color-bright" /> RSS
+                </a>
+              </li>
             </ul>
           </nav>
         </header>
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <footer class="py-8 gutter">
           <nav class="flex justify-center gap-2">
             <a
@@ -72,23 +93,16 @@ export default ({ title, children, styles, page_style, url }) => {
       </body>
     </html>
   );
-};
+}
 
-function NavLink({ current = "", to, children }) {
-  let current_path = current.replace(".html", "");
+function to(current, to) {
+  let current_path = current.replace(".html", "").replace("index", "");
   const active = current_path === to;
   const active_parent = to !== "/" && current_path.includes(to);
-  return (
-    <li>
-      <a
-        class="flex gap-1 items-center aria-current:font-bold"
-        href={active ? "#main" : to}
-        aria-current={active ? "page" : active_parent ? "true" : "false"}
-      >
-        {children}
-      </a>
-    </li>
-  );
+  return {
+    href: active ? "#main" : to,
+    "aria-current": active ? "page" : active_parent ? "true" : "false",
+  };
 }
 
 function Logo({ size }) {
