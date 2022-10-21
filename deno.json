@@ -1,7 +1,8 @@
 {
   "tasks": {
     "build": "deno run --allow-read --allow-write lib/build.js",
-    "dev": "deno run --allow-read --allow-write --watch=styles,blog lib/build.js"
+    "dev": "deno run --allow-read --allow-write --watch=styles,blog lib/build.js",
+    "serve": "deno run --unstable --allow-read --allow-net lib/serve.js _site"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
