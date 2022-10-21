@@ -259,22 +259,19 @@ small {
   font-size: 0.875em;
 }
 
-a[aria-current]:hover {
-  text-decoration: none;
+nav a[aria-current]:hover > svg {
+  animation: pop 0.15s;
 }
 
-a[aria-current] > svg {
-  transition: transform 0.2s;
-}
-
-a[aria-current]:hover > svg {
-  transform: rotate(-30deg);
-}
-
-a[aria-current="true"] > svg,
-a[aria-current="page"] > svg {
-  /* border-block-end: 0.125rem solid var(--text-bright); */
+nav a[aria-current="true"] > svg,
+nav a[aria-current="page"] > svg {
   color: var(--contrast);
+}
+
+@keyframes pop {
+  to {
+    scale: 1.2;
+}
 }
 
 .color-bright {
