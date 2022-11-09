@@ -1,10 +1,10 @@
 ---
+kind: article
 title: Responsive CSS For Beginners
 date: 2020-12-06T21:00:00.000Z
 tags: ["responsive design", "mobile-first", "css"]
+intro: Responsive Design can be a scary thing to a beginner. It's got a special name, which makes people think they need to do special things to achieve it. I'm going to explain a bit about how responsive design developed, then demonstrate making a simple web page work on any screen size with very little CSS.
 ---
-
-Responsive Design can be a scary thing to a beginner. It's got a special name, which makes people think they need to do special things to achieve it. I'm going to explain a bit about how responsive design developed, then demonstrate making a simple web page work on any screen size with very little CSS.
 
 ## Responsive Design history
 

@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Build your own analytics with Netlify Functions
 date: 2020-05-02T16:10:00.000Z
 tags: ["js", "analytics", "netlify", "serverless"]
+intro: I recently decided I would be more motivated to write blog posts if I had some indication that people were reading them. This meant setting up some kind of analytics.
 ---
-
-I recently decided I would be more motivated to write blog posts if I had some indication that people were reading them. This meant setting up some kind of analytics.
-
-<!-- excerpt -->
 
 ## DIY, not Google
 

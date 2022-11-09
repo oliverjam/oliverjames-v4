@@ -1,4 +1,5 @@
 ---
+kind: article
 title: A brief history of deployment
 date: 2021-02-02
 draft: true

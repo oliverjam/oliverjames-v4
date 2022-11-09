@@ -1,12 +1,10 @@
 ---
+kind: article
 title: How to make your terminal nicer to use
 date: 2020-08-13T13:30:00.000
 tags: ["beginner", "tools", "terminal"]
+intro: I mentor a lot of junior developers, and it makes me sad to see so many stuck with the ugly, hard-to-use default terminal setup their machine came with. As a developer you probably spend a large chunk of your day using it, so it's a good idea to invest a little bit of time in making it look prettier and work more like a modern application.
 ---
-
-I mentor a lot of junior developers, and it makes me sad to see so many stuck with the ugly, hard-to-use default terminal setup their machine came with. As a developer you probably spend a large chunk of your day using it, so it's a good idea to invest a little bit of time in making it look prettier and work more like a modern application.
-
-<!-- excerpt -->
 
 <img alt="A comparison of the default terminal with my customised one. Mine has larger font, nicer colour scheme and extra useful information" src="/assets/media/terminal-comparison.png">
 

@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Introduction to Redux
 date: 2019-02-22T12:00:00Z
 tags: ["js", "react", "redux", "learn"]
+intro: Redux attempts to make state changes predictable by restricting how and when they happen. It separates your state management code from your UI code.
 ---
-
-Redux attempts to make state changes predictable by restricting how and when they happen. It separates your state management code from your UI code.
-
-<!-- excerpt -->
 
 ## Principles
 
@@ -142,7 +140,7 @@ It's important to note that we've only used one method from the base Redux packa
 const store = createStore(reducer);
 
 const form = document.querySelector("#add-todo");
-form.addEventListener("submit", event => {
+form.addEventListener("submit", (event) => {
   const text = event.target.elements.addTodo.value;
   dispatch({ type: "ADD_TODO", text });
 });
@@ -171,7 +169,7 @@ It's quite common to create your actions using small functions, rather than cons
 ```javascript
 import { ADD_TODO } from "./constants";
 
-const addTodo = text => {
+const addTodo = (text) => {
   return { type: ADD_TODO, text };
 };
 
@@ -278,14 +276,14 @@ import { connect } from "react-redux";
 function Todos({ todos }) {
   return (
     <ul>
-      {todos.map(todo => (
+      {todos.map((todo) => (
         <li key={todo.id}>{todo.text}</li>
       ))}
     </ul>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     todos: state.todos,
   };
@@ -321,16 +319,13 @@ function ClearTodos({ clear }) {
   return <button onClick={clear}>Clear all todos</button>;
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     clear: () => dispatch({ type: "CLEAR_TODOS" }),
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Todos);
+export default connect(null, mapDispatchToProps)(Todos);
 // note we explicitly pass nothing as the first argument (mapStateToProps)
 // since we don't need to access state
 ```
@@ -345,10 +340,7 @@ function ClearTodos({ clear }) {
   return <button onClick={clear}>Clear all todos</button>;
 }
 
-export default connect(
-  null,
-  { clear: clearTodos }
-)(Todos);
+export default connect(null, { clear: clearTodos })(Todos);
 ```
 
 [Read more about updating state in the docs.](https://react-redux.js.org/using-react-redux/connect-mapdispatch)

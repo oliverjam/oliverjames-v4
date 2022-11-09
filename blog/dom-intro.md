@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Introduction to the DOM
 date: 2019-03-03T16:30:00Z
 tags: ["js", "beginner", "dom", "learn"]
+intro: When I first learnt JavaScript I struggled to understand how to apply that knowledge to practical web pages. I wanted to build things that actually did stuff, rather than static HTML/CSS pages or JavaScript things that only logged text to the console.
 ---
-
-When I first learnt JavaScript I struggled to understand how to apply that knowledge to practical web pages. I wanted to build things that actually _did stuff_, rather than static HTML/CSS pages or JavaScript things that only logged text to the console.
-
-<!-- excerpt -->
 
 This is my attempt to bridge the gap between JavaScript _the language_ and the bits of it you need to know to make things happen on a web page. It will assume you have a basic understanding of HTML and JS, but are new to actually using JS on a web page.
 
@@ -58,7 +56,7 @@ For example:
 
 ```javascript
 const btns = document.querySelectorAll("button");
-btns.forEach(btn => console.log("ID is: " + btn.id));
+btns.forEach((btn) => console.log("ID is: " + btn.id));
 // ID is button-1
 // ID is button-2
 // ID is button-3

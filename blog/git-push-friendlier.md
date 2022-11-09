@@ -1,14 +1,12 @@
 ---
+kind: article
 title: Making Git push a bit friendlier
 date: 2022-01-11
 tags:
   - git
   - terminal
+intro: I have always found pushing my local Git branches to a remote repository a bit confusing. In my experience mentoring beginners this definitely confuses them too. I decided to sit down and figure out practical recommendations for working with it.
 ---
-
-I have always found pushing my local Git branches to a remote repository a bit confusing. In my experience mentoring beginners this definitely confuses them too. I decided to sit down and figure out practical recommendations for working with it.
-
-<!-- excerpt -->
 
 Here's an approximation of what happens when a beginner tries to use Git branches for the first time. After committing some changes on the local branch they try to push to GitHub:
 

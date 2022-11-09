@@ -1,10 +1,10 @@
 ---
+kind: article
 title: "Pitfalls of async functions"
 date: 2020-03-13T18:00:00.000Z
 tags: ["js", "async", "promises", "performance"]
+intro: Async functions can seem like the holy grail for JavaScript developers who struggle to manage their asynchronous code with callbacks or promises. However there are some pitfalls that aren't necessarily obvious at first.
 ---
-
-Async functions can seem like the holy grail for JavaScript developers who struggle to manage their asynchronous code with callbacks or promises. However there are some pitfalls that aren't necessarily obvious at first.
 
 ## Async functions
 
@@ -34,8 +34,8 @@ Here are two examples that fetch data from the [PokeAPI](https://pokeapi.co), on
 ```js
 function getData() {
   fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-    .then(response => response.json())
-    .then(data => console.log(data));
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
 ```
 
@@ -58,8 +58,8 @@ Here are the same two examples, with one extra line of code added after the fetc
 ```js
 function getData() {
   fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-    .then(response => response.json())
-    .then(data => console.log(data));
+    .then((response) => response.json())
+    .then((data) => console.log(data));
   console.log("unrelated stuff");
 }
 ```
@@ -137,8 +137,8 @@ async function getData() {
   const pikaPromise = fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
   const eeveePromise = fetch("https://pokeapi.co/api/v2/pokemon/eevee");
   const [pikaData, eeveeData] = await Promise.all([
-    pikaPromise.then(response => response.json()),
-    eeveePromise.then(response => response.json()),
+    pikaPromise.then((response) => response.json()),
+    eeveePromise.then((response) => response.json()),
   ]);
   console.log(pikaData);
   console.log(eeveeData);

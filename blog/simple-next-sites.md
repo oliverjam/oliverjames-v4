@@ -1,10 +1,11 @@
 ---
+kind: article
 title: Building boring websites with Next.js
 date: 2021-07-24T00:00:00.000Z
 tags: ["web", "react", "next.js"]
+intro: |
+  So Next.js is a great framework for working with React. It comes with a bunch of stuff configured out of the box that you really don't want to worry about when you're starting a project. However it has inherited a major problem from the wider React ecosystem: it massively overcomplicates making what should be a simple bloody website.
 ---
-
-So Next.js is a great framework for working with React. It comes with a bunch of stuff configured out of the box that you really don't want to worry about when you're starting a project. However it has inherited a major problem from the wider React ecosystem: it massively overcomplicates making what should be a simple bloody website.
 
 If you're just interested in how to use Next.js for simple forms you can [jump to that section](#a-better-way). First I'm going to rant a little about the current state of web development.
 

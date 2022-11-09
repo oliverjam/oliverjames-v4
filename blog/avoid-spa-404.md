@@ -1,13 +1,13 @@
 ---
+kind: article
 title: Avoiding 404 errors with Single-Page Apps
 tags:
   - deploy
   - beginner
   - netlify
 date: 2021-06-11
+intro: I see the same problem happen again and again to juniors building their first Single-Page App (SPA). Everything works fine locally, but as soon as they deploy to a hosting platform like Netlify they get loads of "404 Not found" errors trying to load pages. There are lots of resources documenting how to fix this, so I'm also going to try to explain why this happens too.
 ---
-
-I see the same problem happen again and again to juniors building their first Single-Page App (SPA). Everything works fine locally, but as soon as they deploy to a hosting platform like Netlify they get loads of "404 Not found" errors trying to load pages. There are lots of resources documenting how to fix this, so I'm also going to try to explain _why_ this happens too.
 
 ## Client-side routing
 

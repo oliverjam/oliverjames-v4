@@ -1,12 +1,10 @@
 ---
+kind: article
 title: "First-class functions in JavaScript"
 date: 2019-12-11T13:15:00.000Z
 tags: ["js", "functions"]
+intro: In JavaScript functions are treated like any other variable. This is sometimes referred to as “first-class functions”. The concept can be tricky for beginners, so I'm going to try and explain exactly what it means.
 ---
-
-In JavaScript functions are treated like any other variable. This is sometimes referred to as “first-class functions”. The concept can be tricky for beginners, so I'm going to try and explain exactly what it means.
-
-<!-- excerpt -->
 
 ## Functions are variables
 
@@ -97,7 +95,7 @@ console.log(typeof returnsOne());
 Another source of confusion is functions defined inline. This is a common pattern for passing functions as arguments to other functions (for example as event listeners):
 
 ```js
-form.addEventListener("submit", event => {
+form.addEventListener("submit", (event) => {
   // do stuff
 });
 ```
@@ -105,17 +103,17 @@ form.addEventListener("submit", event => {
 We can extract this inline function and assign it to a variable:
 
 ```js
-const handleSubmit = event => {
+const handleSubmit = (event) => {
   // do stuff
 };
 
-form.addEventListener("submit", event => handleSubmit(event));
+form.addEventListener("submit", (event) => handleSubmit(event));
 ```
 
 This can be _even simpler_ if we realise that all our inline function is doing now is taking an argument and passing it on to `handleSubmit`. We don't need the intermediary wrapper function at all:
 
 ```js
-const handleSubmit = event => {
+const handleSubmit = (event) => {
   // do stuff
 };
 
@@ -125,7 +123,7 @@ form.addEventListener("submit", handleSubmit);
 It's important to note that we don't want to _call_ our function when we pass it here. This won't work as we need to pass a function, not its return value:
 
 ```js
-const handleSubmit = event => {
+const handleSubmit = (event) => {
   // do stuff
 };
 
@@ -140,7 +138,7 @@ form.addEventListener("submit", handleSubmit());
 These rules apply to any functions, not just those you define yourself. For example if you wanted to log the result of a promise:
 
 ```js
-getAsyncData().then(data => console.log(data));
+getAsyncData().then((data) => console.log(data));
 ```
 
 The `.then` method expects to be passed a function as an argument. It will call whatever function we pass it with the resolved data. In this case our inline arrow function will be called with `data`, which we then pass on to the `console.log` function.
@@ -148,7 +146,7 @@ The `.then` method expects to be passed a function as an argument. It will call 
 It's important to note that we are _defining_ a function here, which means we can call the argument anything:
 
 ```js
-getAsyncData().then(whateverWeLike => console.log(whateverWeLike));
+getAsyncData().then((whateverWeLike) => console.log(whateverWeLike));
 ```
 
 The actual value that gets passed to our function comes from inside the `.then`—we never have control of it.

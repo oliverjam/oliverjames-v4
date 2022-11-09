@@ -1,10 +1,10 @@
 ---
+kind: article
 title: Where we're going, we don't need servers
 date: 2020-01-23T12:00:00.000
 tags: ["react", "serverless"]
+intro: One of the nicest things about building a single-page app is that you don't need a server. All your application logic can happen client-side, which means you only have to deploy some static HTML, CSS and JS files. There are a plethora of great (free!) options for this. My favourite is Netlify.
 ---
-
-One of the nicest things about building a single-page app is that you don't need a server. All your application logic can happen client-side, which means you only have to deploy some static HTML, CSS and JS files. There are a plethora of great (free!) options for this. My favourite is Netlify.
 
 ## Maybe we do need a server
 

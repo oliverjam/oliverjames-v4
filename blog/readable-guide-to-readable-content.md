@@ -1,7 +1,9 @@
 ---
+kind: article
 title: A readable guide to writing more readable content
 date: 2016-07-08T22:40:32.169Z
 tags: ["writing", "guide", "improve"]
+intro: Writing informative articles for the web is not like writing for other mediums. People read differently online — they open lots of links at once and flick from tab to tab, scanning up and down each page to find the information they want as quickly as possible. The easier to read and absorb your writing is, the more people you will reach.
 ---
 
 Writing informative articles for the web is not like writing for other mediums. People read differently online — they open lots of links at once and flick from tab to tab, scanning up and down each page to find the information they want as quickly as possible. The easier to read and absorb your writing is, the more people you will reach.

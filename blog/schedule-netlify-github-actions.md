@@ -1,10 +1,11 @@
 ---
+kind: article
 title: "Schedule Netlify deploys using GitHub Actions"
 date: 2020-02-19T10:15:06.000Z
 tags: ["netlify", "github", "deploy"]
+intro: |
+  I recently rebuilt the Founders and Coders website using the Eleventy static site generator. I hit an interesting problem making an events page: I wanted the page to be up-to-date every day, which is hard when your site is just a collection of HTML files. I could have used client-side JS to fetch the event schedule and render them, but that felt like cheating when the rest of the site is fully static. Instead I decided to rebuild and re-deploy the site at midnight every day.
 ---
-
-I recently rebuilt the [Founders and Coders website](https://www.foundersandcoders.com) using the Eleventy static site generator. I hit an interesting problem making an events page: I wanted the page to be up-to-date every day, which is hard when your site is just a collection of HTML files. I could have used client-side JS to fetch the event schedule and render them, but that felt like cheating when the rest of the site is fully static. Instead I decided to rebuild and re-deploy the site at midnight every day.
 
 ## Scheduling Netlify deploys
 

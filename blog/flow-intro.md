@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Static typing in JavaScript with Flow
 date: 2019-06-12T13:00:00Z
 tags: ["js", "types", "flow"]
+intro: Flow is a library for adding types to your JavaScript. It's a way to get some of the benefits of a statically typed language whilst still writing the JavaScript you know and love.
 ---
-
-Flow is a library for adding types to your JavaScript. It's a way to get some of the benefits of a statically typed language whilst still writing the JavaScript you know and love.
-
-<!-- excerpt -->
 
 <div style="padding: 2rem; background-color: var(--bg-contrast); grid-column: md-breakout">
 

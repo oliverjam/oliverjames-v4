@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Better native form validation
 date: 2020-05-04T12:50:00.000Z
 tags: ["html", "validation", "accessibility"]
+intro: All but the simplest forms need some validation to help users enter the right information. I usually want slightly more control than native HTML5 validation, but without re-implementing everything in JavaScript. I recently discovered a great technique for enhancing the browser's built-in validation.
 ---
-
-All but the simplest forms need some validation to help users enter the right information. I usually want slightly more control than native HTML5 validation, but without re-implementing everything in JavaScript. I recently discovered a great technique for enhancing the browser's built-in validation.
-
-<!-- excerpt -->
 
 ## Quick summary
 

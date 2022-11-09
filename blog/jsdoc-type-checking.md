@@ -1,14 +1,12 @@
 ---
+kind: article
 title: Using JSDoc to check your code
 date: 2022-01-28
 tags:
   - js
   - typescript
+intro: It can be difficult to keep track of what each value is while you're writing code. This becomes a bigger problem in larger codebases with lots of abstraction—when data passes through several functions it's easy to forget what you're expecting to get back. JSDoc is a tool/convention that can help solve this problem.
 ---
-
-It can be difficult to keep track of what each value is while you're writing code. This becomes a bigger problem in larger codebases with lots of abstraction—when data passes through several functions it's easy to forget what you're expecting to get back. JSDoc is a tool/convention that can help solve this problem.
-
-<!-- excerpt -->
 
 ## Documenting your functions
 

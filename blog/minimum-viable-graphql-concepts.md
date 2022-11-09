@@ -1,10 +1,10 @@
 ---
+kind: article
 title: "Minimum viable GraphQL: the concepts"
 date: 2019-11-05T12:30:00Z
 tags: ["js", "graphql", "learn"]
+intro: GraphQL is a specification for APIs developed at Facebook. It consists of a language for querying data and a runtime that understands those queries and gets the right data. In effect it's an agreed-upon convention with well-defined rules for fetching and serving data.
 ---
-
-GraphQL is a specification for APIs developed at Facebook. It consists of a language for querying data and a runtime that understands those queries and gets the right data. In effect it's an agreed-upon convention with well-defined rules for fetching and serving data.
 
 ## Unique selling points
 

@@ -1,13 +1,13 @@
 ---
+kind: article
 title: Better dev environments with npm workspaces
 date: 2021-06-10
 tags:
   - npm
   - workspaces
   - js
+intro: As of version 7 npm now includes a feature called "workspaces". This is designed to help you manage multiple separate packages within a single project.
 ---
-
-As of version 7 npm now includes a feature called "workspaces". This is designed to help you manage multiple separate packages within a single project.
 
 For example you may have a React frontend and an Express backend for your app that you want to manage as a single repository on GitHub. However this makes development awkward, as you constantly have to `cd` into the right directory to install dependencies or run npm scripts.
 

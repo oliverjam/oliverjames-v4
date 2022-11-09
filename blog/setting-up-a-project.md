@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Setting up a project from scratch
 date: 2019-12-15T15:00:00.000Z
 tags: ["web", "js", "tooling"]
+intro: Setting up a project can be as daunting as starting an essay. You sit staring at the blank white page (or dark mode editor) wondering where to begin. I'm going to describe the steps I would take to create a new web project. It will be JavaScript focused, since that's the ecosystem I'm comfortable in.
 ---
-
-Setting up a project can be as daunting as starting an essay. You sit staring at the blank white page (or dark mode editor) wondering where to begin. I'm going to describe the steps I would take to create a new web project. It will be JavaScript focused, since that's the ecosystem I'm comfortable in.
-
-<!-- excerpt -->
 
 I'm going to assume you aren't using a project-generator like [Create React App](https://create-react-app.dev/) or [Vue CLI](https://cli.vuejs.org/) and are starting totally from scratch.
 

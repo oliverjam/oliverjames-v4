@@ -1,12 +1,10 @@
 ---
+kind: article
 title: Gatsby is the future
 date: 2019-07-03T12:00:00Z
 tags: ["js", "gatsby", "wordpress", "web", "future"]
+intro: I think Gatsby is the future of the web. I'm going to explain why by comparing it to WordPress, the go-to platform for websites over the last fifteen years. I think Gatsby already meets or exceeds most of the things that make WordPress so popular, so it's well placed to become the next huge thing.
 ---
-
-I think Gatsby is the future of the web. I'm going to explain why by comparing it to [WordPress](https://wordpress.org/), the go-to platform for websites over the last fifteen years. I think Gatsby already meets or exceeds most of the things that make WordPress so popular, so it's well placed to become the next huge thing.
-
-<!-- excerpt -->
 
 ## Why WordPress was so successful
 

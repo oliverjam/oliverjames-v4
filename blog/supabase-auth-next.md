@@ -1,11 +1,11 @@
 ---
+kind: article
 title: How Supabase works
 date: 2021-11-30
 tags: ["web", "supabase", "react", "next.js"]
 draft: true
+intro: Supabase is a relatively new platform for building web applications. It handles a bunch of things most apps need using a combination of open source technology. For example they provide a hosted PostgreSQL database, a JS library for talking to the DB without writing SQL, simple authentication, and a lot more.
 ---
-
-Supabase is a relatively new platform for building web applications. It handles a bunch of things most apps need using a combination of open source technology. For example they provide a hosted PostgreSQL database, a JS library for talking to the DB without writing SQL, simple authentication, and a lot more.
 
 Since the platform is quite new the documentation isn't mature yet. I have found it a little confusing to understand how all the different parts fit together. This post is intended less as a tutorial and more as an overview for people who have already tried Supabase out and want to understand it better.
 

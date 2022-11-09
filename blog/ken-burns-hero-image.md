@@ -1,12 +1,10 @@
 ---
+kind: article
 title: How to create a Ken Burns hero image effect
 date: 2016-11-16T22:40:32.169Z
 tags: ["css", "js", "animation", "ken burns", "keyframes"]
+intro: Lick are a shopper marketing agency with a strong focus on creative design, which meant their site needed to be visual-heavy. They wanted the top of the homepage to communicate this, whilst also subtly nodding to some of the big brands the agency works with.
 ---
-
-[Lick] are a shopper marketing agency with a strong focus on creative design, which meant their site needed to be visual-heavy. They wanted the top of the homepage to communicate this, whilst also subtly nodding to some of the big brands the agency works with.
-
-<!-- excerpt -->
 
 ## The design process
 
@@ -133,7 +131,6 @@ We then increment the counter variable by one so that the next image is shown ea
 
 The function is run by setting an interval. The time in milliseconds here determines how long each iteration of the function will last (and therefore how long each image will get to animate). This takes a little playing with to get the exact effect you're looking for.
 
-[lick]: http://www.lickcreative.com
 [ken burns]: http://en.wikipedia.org/wiki/Ken_Burns_effect
 [don't support viewport units]: http://caniuse.com/#feat=viewport-units
 [will-change]: https://developer.mozilla.org/en/docs/Web/CSS/will-change

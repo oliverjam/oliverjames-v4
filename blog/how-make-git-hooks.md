@@ -1,11 +1,9 @@
 ---
+kind: article
 title: How to make your own Git hooks
 date: 2021-02-15
+intro: It turns out Git hooks are pretty simple when you strip them back to basics. I always thought they were a sort of arcane magic. My only experience with them was trying (and often failing) to chant the right combination of Husky, lint-staged and Prettier commands required to ensure new code is formatted consistently.
 ---
-
-It turns out Git hooks are pretty simple when you strip them back to basics. I always thought they were a sort of arcane magic. My only experience with them was trying (and often failing) to chant the right combination of Husky, lint-staged and Prettier commands required to ensure new code is formatted consistently.
-
-<!-- excerpt -->
 
 ## What is a Git hook?
 

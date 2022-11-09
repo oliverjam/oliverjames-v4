@@ -1,15 +1,13 @@
 ---
+kind: article
 title: Frontend testing in Node with jsdom
 date: 2022-05-18
 tags:
   - js
   - testing
   - jsdom
+intro: Sometimes you want to write some simple tests for a JS app that runs in the browser. Unfortunately this can be quite difficult, for a number of reasons. However with the right configuration the jsdom library can help us easily test our DOM code using Node so the tests run right in our terminal.
 ---
-
-Sometimes you want to write some simple tests for a JS app that runs in the browser. Unfortunately this can be quite difficult, for a number of reasons. However with the right configuration the jsdom library can help us easily test our DOM code using Node so the tests run right in our terminal.
-
-<!-- excerpt -->
 
 ## The problem
 

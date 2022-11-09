@@ -1,10 +1,10 @@
 ---
+kind: article
 title: "Minimum viable GraphQL: the client"
 date: 2019-11-06T15:00:00Z
 tags: ["js", "graphql", "learn"]
+intro: GraphQL tutorials often assume you'll be using a client-side library like Apollo or Urql to manage your data-fetching. This can make it hard to separate what's GraphQL itself from stuff implemented by the library.
 ---
-
-GraphQL tutorials often assume you'll be using a client-side library like [Apollo](https://www.apollographql.com/) or [Urql](https://formidable.com/open-source/urql/) to manage your data-fetching. This can make it hard to separate what's GraphQL itself from stuff implemented by the library.
 
 I'm going to demonstrate how to make basic GraphQL queries directly from the browser using vanilla JavaScript. If you know how to make `POST` requests using `fetch` then you're 90% of the way there already.
 
@@ -66,14 +66,14 @@ fetch("https://pokemon-gql.now.sh/api", {
   headers: { "content-type": "application/json" },
   body: JSON.stringify({ query }),
 })
-  .then(response => {
+  .then((response) => {
     if (!response.ok) throw new Error("Request failed");
     return response.json();
   })
-  .then(json => {
+  .then((json) => {
     console.log(json);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
   });
 ```
@@ -156,15 +156,13 @@ function fetchPokemon(name) {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ query, variables: { name } }),
-  }).then(response => {
+  }).then((response) => {
     if (!response.ok) throw new Error("Request failed");
     return response.json();
   });
 }
 
-fetchPokemon("pikachu")
-  .then(console.log)
-  .catch(console.error);
+fetchPokemon("pikachu").then(console.log).catch(console.error);
 ```
 
 We could then call `fetchPokemon` inside an event handler where we have a user's chosen name.
