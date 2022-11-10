@@ -26,8 +26,7 @@ export function Search() {
             name="q"
             aria-label="Search via DuckDuckGo"
             placeholder="Search"
-            class="block w-100 mx-auto py-3 px-3 pl-8 bg-dim font-3"
-            style="padding-inline-start: calc(var(--space-8) + var(--space-2))"
+            class="SearchInput"
           />
           <svg
             id="search"

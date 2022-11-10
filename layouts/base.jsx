@@ -20,10 +20,10 @@ export function Layout({ title, children, styles, page_style, url }) {
         )}
       </head>
       <body>
-        <a class="skip py-1 px-2" href="#main">
+        <a class="skip" href="#main">
           Skip to content
         </a>
-        <header class="w-100 max-w-home mx-auto flex gap-6 items-center justify-between py-8 gutter lh-1">
+        {/* <header class="w-100 max-w-home mx-auto flex gap-6 items-center justify-between py-8 gutter lh-1">
           <a {...to(url, "/")} aria-label="home" class="flex">
             <Logo size="44" />
           </a>
@@ -55,9 +55,9 @@ export function Layout({ title, children, styles, page_style, url }) {
               </li>
             </ul>
           </nav>
-        </header>
-        <main id="main">{children}</main>
-        <footer class="py-8 gutter">
+        </header> */}
+        <main>{children}</main>
+        {/* <footer class="py-8 gutter">
           <nav class="flex justify-center gap-2">
             <a
               href="https://twitter.com/_oliverjam"
@@ -89,7 +89,7 @@ export function Layout({ title, children, styles, page_style, url }) {
             <small>View source</small>
             <Icon size="16" name="external" />
           </a>
-        </footer>
+        </footer> */}
       </body>
     </html>
   );
@@ -115,6 +115,7 @@ function Logo({ size }) {
       stroke-width="3"
       width={size}
       height={size}
+      aria-hidden="true"
     >
       <defs>
         <mask id="mask">

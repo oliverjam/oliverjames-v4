@@ -1,5 +1,5 @@
 import { Feed } from "../layouts/feed.jsx";
 
 export default (data) => {
-  return <Feed {...data} title="Home" filter="all" />;
+  return <Feed {...data} title="Articles" filter="article" />;
 };

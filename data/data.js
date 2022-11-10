@@ -11,7 +11,8 @@ export default async function () {
         let { data, content } = markdown(raw);
         let { name } = parse(entry.name);
         let time = reading_time(content);
-        return { slug: name, time, ...data, content };
+        let intro = ellipsis(data.intro);
+        return { slug: name, time, ...data, intro, content };
       } catch (error) {
         console.error(`Error reading blog '${entry.name}'`);
         console.error(error);
@@ -43,4 +44,14 @@ export default async function () {
 
 async function read_style(entry) {
   return [entry.name, await Deno.readTextFile(entry.path)];
+}
+
+function ellipsis(intro) {
+  if (!intro) return undefined;
+  let trimmed = intro.trim();
+  if (trimmed.endsWith(".")) {
+    return trimmed.slice(0, -1) + "…";
+  } else {
+    return trimmed + "…";
+  }
 }
