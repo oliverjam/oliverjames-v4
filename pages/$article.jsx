@@ -1,9 +1,8 @@
 import { Layout } from "../layouts/base.jsx";
 import { Avatar } from "../layouts/feed.jsx";
 import { Icon } from "../components/icon.jsx";
-import { Tag } from "../components/tag.jsx";
 import { ReadableDate } from "../components/dates.jsx";
-import { PostLink } from "../components/post.jsx";
+import { Entry } from "../components/entry.jsx";
 import { slug } from "../lib/slug.js";
 import { related } from "../lib/related.js";
 
@@ -46,7 +45,7 @@ export default (data) => {
     related,
   }) {
     return (
-      <div class="Profile font-serif">
+      <div class="Profile BorderBetween font-serif">
         <article class="BorderBetween h-entry">
           <header class="ProfileHeader">
             <Avatar />
@@ -80,57 +79,27 @@ export default (data) => {
           </header>
           <div class="e-content BorderBetween">
             <p class="py-8 gutter font-4">{intro}</p>
-            <div class="ArticleContent py-8">{children}</div>
+            <div class="ArticleContent py-8 pb-9">{children}</div>
           </div>
         </article>
-        {/* <header class="grid gap-1 gutter">
-          <h1 class="p-name font-5-8">{title}</h1>
-          <span class="flex items-center gap-1 font-3">
-            <Icon name="calendar" class="color-bright" />
-            <ReadableDate>{date}</ReadableDate>
-          </span>
-          <span class="flex items-center gap-1 font-3">
-            <Icon name="clock" class="color-bright" />
-            {(time / 60).toFixed(1)} minute read
-          </span>
-          <ul class="flex wrap gap-2">
-            {tags.map((tag) => (
-              <Tag slug={slug(tag)}>
-                <b>{tag}</b>
-              </Tag>
-            ))}
-          </ul>
-        </header> */}
-        {/* <article class="e-content pt-8 pb-9">{children}</article> */}
-        <div
-          class="bg-dim grid gap-5 py-8 gutter"
-          style="border-top: var(--space-1) solid var(--contrast)"
-        >
+        <ul class="BorderBetween">
           {prev && (
-            <div class="grid gap-3">
-              <h3 class="font-3">Previous</h3>
-              <PostLink rel="prev" {...prev} />
-            </div>
+            <li>
+              <Entry reason="Previous" {...prev} />
+            </li>
           )}
           {next && (
-            <div class="grid gap-3">
-              <h3 class="font-3">Next</h3>
-              <PostLink rel="next" {...next} />
-            </div>
+            <li>
+              <Entry reason="Next" {...next} />
+            </li>
           )}
-          {related?.length && (
-            <div class="grid gap-3">
-              <h3 class="font-3">Related</h3>
-              <ul class="grid gap-3">
-                {related.map((post) => (
-                  <li>
-                    <PostLink {...post} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+          {related?.length &&
+            related.map((post) => (
+              <li>
+                <Entry reason="Related" {...post} />
+              </li>
+            ))}
+        </ul>
       </div>
     );
   }

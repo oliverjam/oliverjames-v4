@@ -5,6 +5,7 @@ import { ellipsis } from "../lib/ellipsis.js";
 export function Entry({
   slug,
   date,
+  reason,
   kind = "article",
   intro,
   title,
@@ -19,6 +20,7 @@ export function Entry({
       <Icon class="EntryIcon" name={kind} size="14" />
       <div class="EntryMeta">
         <a href={"/" + kind}>
+          {reason && <span>{reason} </span>}
           <span class="EntryKind p-kind">{kind}</span>
         </a>
         <span aria-hidden="true">•</span>
