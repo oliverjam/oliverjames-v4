@@ -1,6 +1,7 @@
 import { Layout as Base } from "./base.jsx";
 import { Search } from "../components/search.jsx";
 import { Icon } from "../components/icon.jsx";
+import { A } from "../components/external.jsx";
 
 let sizes = {
   md: 96,
@@ -59,12 +60,16 @@ export function Bio() {
     <div class="flex wrap gap-2">
       <div class="flex-1">
         <h1>oli</h1>
-        <a href="https://github.com/oliverjam">
-          <Icon name="github" size="16" /> @oliverjam
-        </a>
-        <p>I do web stuff</p>
-        <p>Previously @founderscoders</p>
-        <p>Previously @ticketmaster</p>
+        <A href="https://github.com/oliverjam">
+          <Icon name="github" size="16" /> oliverjam
+        </A>
+        <p>weird web person</p>
+        <p>
+          Previously <A href="https://foundersandcoders.com">@founderscoders</A>
+        </p>
+        <p>
+          Previously <A href="https://ticketmaster/co.uk">@ticketmaster</A>
+        </p>
       </div>
       <nav>
         <a class="ProfileButton" href="/feed.xml">
