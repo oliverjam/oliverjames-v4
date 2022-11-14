@@ -1,29 +1,29 @@
-.e-content {
+.ArticleContent {
   line-height: 1.6;
 }
 
-.e-content > :not(:is(pre, img)) {
+.ArticleContent > :not(:is(pre, img)) {
   padding-inline: var(--gutter);
 }
 
-.e-content > * + * {
+.ArticleContent > * + * {
   margin-top: var(--space-4);
 }
 
-.e-content :is(h2, h3, h4, h5, h6) {
+.ArticleContent * + :is(h2, h3, h4, h5, h6) {
   margin-top: 2em;
   position: relative;
 }
 
-.e-content a {
+.ArticleContent a {
   text-decoration: underline;
 }
 
-.e-content .hash {
+.ArticleContent .hash {
   text-decoration: none;
 }
 
-.e-content .hash::before {
+.ArticleContent .hash::before {
   content: "#";
   font-size: 1.125rem;
   position: absolute;
@@ -35,11 +35,11 @@
   transition: opacity 0.2s;
 }
 
-.e-content .hash:hover::before {
+.ArticleContent .hash:hover::before {
   opacity: 1;
 }
 
-.e-content :is(ol, ul) {
+.ArticleContent :is(ol, ul) {
   list-style-position: inside;
 }
 

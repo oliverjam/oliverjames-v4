@@ -35,7 +35,7 @@ html {
   --code-4: var(--shade-9);
   --bg: var(--shade-1);
   --bg-dim: var(--shade-2);
-  --gutter: clamp(var(--space-4), var(--space-4) + 2vw, var(--space-8));
+  --gutter: clamp(var(--space-4), var(--space-4) + 2vw, var(--space-7));
   --font-1: 0.75rem;
   --font-2: 0.875rem;
   --font-3: 1rem;
@@ -132,8 +132,8 @@ video {
   height: auto;
 }
 
-ul[class],
-ol[class] {
+ul:where([class]),
+ol:where([class]) {
   padding: 0;
   list-style: none;
 }
@@ -143,7 +143,7 @@ h2,
 h3,
 h4,
 h5 {
-  line-height: 1.1;
+  line-height: 1;
 }
 
 body {
@@ -153,6 +153,16 @@ body {
   min-height: 100vh;
   /* !IMPORTANT stops horizontal overflow/blowout */
   grid-template-columns: minmax(0, 1fr);
+}
+
+.vh {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .block {
@@ -279,6 +289,10 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+.font-serif {
+  font-family: "Spectral", serif;
+}
+
 .text-small,
 small {
   font-size: 0.875em;
@@ -394,7 +408,7 @@ a[aria-current="page"] > svg {
   max-inline-size: 38rem;
   margin-inline: auto;
   --py: var(--space-3);
-  --px: var(--space-5);
+  --px: var(--gutter);
 }
 
 @media (min-width: 38rem) {
@@ -403,7 +417,7 @@ a[aria-current="page"] > svg {
   }
 }
 
-:is(.Profile, .Feed) > *:not(:last-child) {
+.BorderBetween > *:not(:last-child) {
   border-block-end: 1px solid var(--border-dim);
 }
 
@@ -414,7 +428,7 @@ a[aria-current="page"] > svg {
 
 .ProfileCover {
   margin-inline: calc(var(--px) * -1);
-  margin-block-end: -64px;
+  margin-block-end: var(--overlap);
   block-size: 8rem;
   --s: 80px;
   --c1: var(--bg);

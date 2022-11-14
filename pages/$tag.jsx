@@ -1,25 +1,40 @@
-import { Layout } from "../layouts/list.jsx";
+import { Profile, Feed } from "../layouts/feed.jsx";
 import { slug } from "../lib/slug.js";
-import { PostLink } from "../components/post.jsx";
+import { Entry } from "../components/entry.jsx";
 
 export default (data) => {
   let { tags } = data;
   return Array.from(tags).map(([tag, posts]) => {
     let url = `/tags/${slug(tag)}.html`;
-    let title = `‘${tag}’ archive`;
     return {
       url,
       component: (
-        <Layout {...data} url={url} title={title}>
-          <ul class="grid gap-5">
+        <Profile
+          {...data}
+          url={url}
+          title={"#" + tag}
+          size="lg"
+          header={<Title>{tag}</Title>}
+        >
+          <Feed>
             {posts.map((post) => (
               <li>
-                <PostLink {...post} size="md" />
+                <Entry {...post} />
               </li>
             ))}
-          </ul>
-        </Layout>
+          </Feed>
+        </Profile>
       ),
     };
   });
 };
+
+function Title({ children }) {
+  return (
+    <h1>
+      <span aria-hidden="true">#</span>
+      {children}
+      <span class="vh"> tags</span>
+    </h1>
+  );
+}
