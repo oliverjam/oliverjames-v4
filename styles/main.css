@@ -563,10 +563,18 @@ a[aria-current="page"] > svg {
   background-color: var(--bg-dim);
 }
 
-.Entry:focus-within {
-  outline: 0.125rem solid var(--contrast);
-  outline-offset: -0.125rem;
-  background-color: var(--bg-dim);
+.EntryMeta {
+  grid-area: meta;
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  font-size: var(--font-2);
+  color: var(--text-bright);
+}
+
+.EntryMeta .p-name {
+  font-weight: bold;
+  color: var(--text);
 }
 
 .EntryIcon {
@@ -575,30 +583,40 @@ a[aria-current="page"] > svg {
   color: var(--text-bright);
 }
 
-.EntryMeta {
-  grid-area: meta;
-}
-
 .EntryKind {
+  order: -1;
+  border-radius: 2px;
   text-transform: capitalize;
-  /* font-size: var(--font-2); */
   align-self: end;
   color: var(--text-bright);
   font-family: system-ui, sans-serif;
+}
+
+.EntryLink {
+  order: 1;
 }
 
 .EntryLink:hover {
   text-decoration: none;
 }
 
-.EntryLink:focus {
-  outline: none;
-}
-
 .EntryLink::after {
   content: "";
   position: absolute;
   inset: 0;
+}
+
+.EntryLink:focus {
+  outline: none;
+}
+
+.EntryLink:focus::after {
+  outline: 0.125rem solid var(--focus);
+  outline-offset: -0.125rem;
+}
+
+.EntryLink:focus:not(:focus-visible)::after {
+  outline: 0;
 }
 
 .EntryTitle {
@@ -612,20 +630,6 @@ a[aria-current="page"] > svg {
 
 .EntryAvatar img {
   border-radius: 50%;
-}
-
-.EntryMeta {
-  display: flex;
-  gap: var(--space-1);
-  align-items: center;
-  font-size: var(--font-2);
-  color: var(--text-bright);
-}
-
-.EntryMeta .p-name {
-  font-weight: bold;
-  /* font-size: var(--font-2); */
-  color: var(--text);
 }
 
 .EntryContent {

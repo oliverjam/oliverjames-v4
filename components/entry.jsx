@@ -19,22 +19,16 @@ export function Entry({
       <Avatar />
       <Icon class="EntryIcon" name={kind} size="14" />
       <div class="EntryMeta">
-        <a href={"/" + kind}>
-          {reason && <span>{reason} </span>}
-          <span class="EntryKind p-kind">{kind}</span>
-        </a>
-        <span aria-hidden="true">•</span>
         <a class="EntryLink u-uid u-url" href={href}>
           <ReadableDate month="short">{date}</ReadableDate>
         </a>
+        <span aria-hidden="true">•</span>
+        <a href={"/" + kind} class="EntryKind">
+          {reason && <span>{reason} </span>}
+          <span class="p-kind">{kind}</span>
+        </a>
       </div>
-      {title && (
-        <h2 class="EntryTitle">
-          <a class="p-name u-url" href={href} tabindex="-1">
-            {title}
-          </a>
-        </h2>
-      )}
+      {title && <h2 class="EntryTitle p-name">{title}</h2>}
       {intro ? (
         <div class="EntryContent p-summary">{ellipsis(intro)}</div>
       ) : (
