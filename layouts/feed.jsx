@@ -1,20 +1,13 @@
 import { Layout as Base } from "./base.jsx";
 import { Search } from "../components/search.jsx";
 import { Icon } from "../components/icon.jsx";
-import { A } from "../components/external.jsx";
 
 let sizes = {
   md: 96,
   lg: 128,
 };
 
-export function Layout({
-  children,
-  header = <Bio />,
-  url,
-  size = "md",
-  ...data
-}) {
+export function Layout({ children, header, url, size = "md", ...data }) {
   return (
     <Base {...data} url={url}>
       <Profile>
@@ -42,9 +35,8 @@ export function Avatar({ size = 96 }) {
   return (
     <>
       <div class="ProfileCover" style={`--overlap: -${size / 2}px`} />
-      <a href="/" aria-label="Home">
+      <a href="/" aria-label="Home" class="ProfileAvatar">
         <img
-          class="ProfileAvatar"
           src="/assets/me.jpg"
           alt="oli's profile picture"
           width={size}
@@ -52,31 +44,6 @@ export function Avatar({ size = 96 }) {
         />
       </a>
     </>
-  );
-}
-
-export function Bio() {
-  return (
-    <div class="flex wrap gap-2">
-      <div class="flex-1">
-        <h1>oli</h1>
-        <A href="https://github.com/oliverjam">
-          <Icon name="github" size="16" /> oliverjam
-        </A>
-        <p>weird web person</p>
-        <p>
-          Previously <A href="https://foundersandcoders.com">@founderscoders</A>
-        </p>
-        <p>
-          Previously <A href="https://ticketmaster/co.uk">@ticketmaster</A>
-        </p>
-      </div>
-      <nav>
-        <a class="ProfileButton" href="/feed.xml">
-          Follow <Icon name="rss" size="24" />
-        </a>
-      </nav>
-    </div>
   );
 }
 

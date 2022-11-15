@@ -51,7 +51,7 @@ export default (data) => {
             <Avatar />
             <div class="grid gap-2">
               <div class="flex items-center gap-3 font-2 color-bright font-sans">
-                <a href="/articles" class="flex items-center gap-1">
+                <a href="/articles" class="EntryKind flex items-center gap-1">
                   <Icon name="article" size="16" />
                   <span class="p-kind">Article</span>
                 </a>

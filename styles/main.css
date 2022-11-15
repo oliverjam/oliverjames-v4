@@ -21,7 +21,7 @@ html {
   --shade-10: hsl(calc(var(--h) + 36), 42%, 23%);
   --shade-11: hsl(calc(var(--h) + 40), 40%, 18%);
   --shade-12: hsl(calc(var(--h) + 44), 38%, 8%);
-  --contrast: hsl(calc(320), 70%, 56%);
+  --contrast: hsl(320, 70%, 49%);
   /* --contrast: hsl(calc(315 + 48), 65%, 56%); */
   --text-light: var(--shade-9);
   --text-dark: var(--shade-1);
@@ -29,6 +29,7 @@ html {
   --text-dim: var(--shade-5);
   --text-bright: var(--shade-7);
   --border-dim: var(--shade-3);
+  --focus: var(--text-bright);
   --code-1: var(--shade-5);
   --code-2: var(--shade-7);
   --code-3: var(--shade-8);
@@ -66,6 +67,7 @@ html {
     --shade-10: hsl(180, 32%, 23%);
     --shade-11: hsl(184, 30%, 15%);
     --shade-12: hsl(188, 28%, 8%);
+    --contrast: hsl(320, 75%, 60%);
     --text: var(--text-dark);
     --text-bright: var(--shade-6);
     --code-1: var(--shade-7);
@@ -100,7 +102,7 @@ a:hover {
 
 /* All links get a nice default outline */
 a:focus {
-  outline: 0.125rem solid var(--contrast);
+  outline: 0.125rem solid var(--focus);
   outline-offset: 0.25rem;
 }
 
@@ -312,6 +314,10 @@ a[aria-current="page"] > svg {
   color: var(--text-bright);
 }
 
+.color-contrast {
+  color: var(--contrast);
+}
+
 .bg-dim {
   background-color: var(--bg-dim);
 }
@@ -446,8 +452,15 @@ a[aria-current="page"] > svg {
 }
 
 .ProfileAvatar {
-  border: 0.25rem solid var(--bg);
+  display: inline-flex;
   border-radius: 50%;
+  border: 0.25rem solid var(--bg);
+  overflow: hidden;
+}
+
+.ProfileAvatar:focus {
+  outline-offset: 0;
+  outline-color: var(--focus);
 }
 
 .ProfileButton {
@@ -478,7 +491,7 @@ a[aria-current="page"] > svg {
 }
 
 .SearchInput:focus {
-  outline: 0.125rem solid var(--contrast);
+  outline: 0.125rem solid var(--focus);
   outline-offset: -0.125rem;
 }
 
