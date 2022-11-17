@@ -1,7 +1,8 @@
+import { styles } from "../lib/data.js";
 export let url = "rss.xsl";
 
-export default (data) => {
-  let styles = data.styles.get("main.css");
+export default () => {
+  let css = styles.get("main.css");
   return /*xml*/ `
 <xsl:stylesheet
   version="3.0"
@@ -21,7 +22,7 @@ export default (data) => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-        <style>${styles}</style>
+        <style>${css}</style>
         <style>
           body {
             max-inline-size: 40rem;

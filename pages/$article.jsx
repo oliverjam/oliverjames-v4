@@ -1,3 +1,4 @@
+import { posts, tags } from "../lib/data.js";
 import { Document } from "../components/document.jsx";
 import { Avatar } from "../components/profile.jsx";
 import { Icon } from "../components/icon.jsx";
@@ -7,7 +8,6 @@ import { slug } from "../lib/slug.js";
 import { related } from "../lib/related.js";
 
 export default (data) => {
-  let { posts, tags } = data;
   return posts.map((post, index) => {
     let prev = posts[index + 1];
     let next = posts[index - 1];

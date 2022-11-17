@@ -1,6 +1,8 @@
+import { posts } from "../lib/data.js";
+
 export let url = "feed.xml";
 
-export default ({ posts }) => {
+export default () => {
   let last_updated = new Date(posts[0].date);
   return /*xml*/ `
 <?xml version="1.0" encoding="utf-8"?>

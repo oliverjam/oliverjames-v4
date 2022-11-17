@@ -59,7 +59,7 @@ To make this more obvious I have prefixed files that generate multiple pages wit
 
 ### Content
 
-The build script will run the function in `lib/data.js` and pass the result to every page function. This means pages have access to any data generated in here. Currently `lib/data.js` reads all the markdown files in `content/` and parses the content to metadata + HTML. It also reads all CSS files in `styles/` so pages can inline the correct styles.
+`lib/data.js` reads all the markdown files in `content/` and parses the content to metadata + HTML. It also reads all CSS files in `styles/` so pages can inline the correct styles. Pages can import these—module caching means it should only run once per build.
 
 #### Markdown
 

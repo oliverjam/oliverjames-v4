@@ -1,9 +1,9 @@
 import { Profile, Feed } from "../components/profile.jsx";
+import { tags } from "../lib/data.js";
 import { slug } from "../lib/slug.js";
 import { Entry } from "../components/entry.jsx";
 
 export default (data) => {
-  let { tags } = data;
   return Array.from(tags).map(([tag, posts]) => {
     let url = `/tags/${slug(tag)}.html`;
     return {
