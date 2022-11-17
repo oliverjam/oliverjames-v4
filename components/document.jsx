@@ -1,10 +1,10 @@
-export function Document({ title, children, styles, page_style, url }) {
+import { ASSETS } from "../lib/assets.js";
   return (
     <html lang="en">
       <head>
         <meta charset="utf-8" />
         <title>{`${title} | oliverjam.es`}</title>
-        <link rel="icon" href="/assets/favicon.svg" />
+        <link rel="icon" href={ASSETS.get("favicon.svg")} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

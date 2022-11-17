@@ -1,6 +1,7 @@
 import { ReadableDate } from "./dates.jsx";
 import { Icon } from "./icon.jsx";
 import { ellipsis } from "../lib/ellipsis.js";
+import { ASSETS } from "../lib/assets.js";
 
 export function Entry({
   slug,
@@ -60,7 +61,7 @@ export function Avatar() {
       <a class="u-url" href="/" tabindex="-1">
         <img
           class="u-photo p-name"
-          src="/assets/me.jpg"
+          src={ASSETS.get("me.jpg")}
           alt="Oliver Phillips"
           width="48"
           height="48"

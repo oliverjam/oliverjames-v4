@@ -1,6 +1,7 @@
 import { Document } from "./document.jsx";
 import { Search } from "../components/search.jsx";
 import { Icon } from "../components/icon.jsx";
+import { ASSETS } from "../lib/assets.js";
 
 let sizes = {
   md: 96,
@@ -37,7 +38,7 @@ export function Avatar({ size = 96 }) {
       <div class="ProfileCover" style={`--overlap: -${size / 2}px`} />
       <a href="/" aria-label="Home" class="ProfileAvatar">
         <img
-          src="/assets/me.jpg"
+          src={ASSETS.get("me.jpg")}
           alt="oli's profile picture"
           width={size}
           height={size}
