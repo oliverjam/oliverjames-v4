@@ -1,5 +1,5 @@
 import { Document } from "../components/document.jsx";
-import { Avatar } from "../components/feed.jsx";
+import { Avatar } from "../components/profile.jsx";
 import { Icon } from "../components/icon.jsx";
 import { ReadableDate } from "../components/dates.jsx";
 import { Entry } from "../components/entry.jsx";

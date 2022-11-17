@@ -1,4 +1,4 @@
-import { Profile, Feed } from "../components/feed.jsx";
+import { Profile, Feed } from "../components/profile.jsx";
 import { slug } from "../lib/slug.js";
 import { Entry } from "../components/entry.jsx";
 

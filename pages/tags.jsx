@@ -1,4 +1,4 @@
-import { Profile } from "../components/feed.jsx";
+import { Profile } from "../components/profile.jsx";
 
 export default (data) => {
   return (
