@@ -1,7 +1,7 @@
-import { Layout } from "../layouts/base.jsx";
+import { Document } from "../components/document.jsx";
 
 export default (data) => (
-  <Layout {...data} title="Page not found">
+  <Document {...data} title="Page not found">
     <div class="mx-auto pile">
       <style>
         {`
@@ -45,5 +45,5 @@ export default (data) => (
         404
       </b>
     </div>
-  </Layout>
+  </Document>
 );

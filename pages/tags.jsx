@@ -1,8 +1,8 @@
-import { Layout } from "../layouts/feed.jsx";
+import { Profile } from "../components/feed.jsx";
 
 export default (data) => {
   return (
-    <Layout {...data} title="Tags" size="lg" header={<h1>Tags</h1>}>
+    <Profile {...data} title="Tags" size="lg" header={<h1>Tags</h1>}>
       <ol class="grid gap-3 gutter py-6">
         {Array.from(data.tags)
           .sort((a, b) => b[1].length - a[1].length)
@@ -17,6 +17,6 @@ export default (data) => {
             </li>
           ))}
       </ol>
-    </Layout>
+    </Profile>
   );
 };

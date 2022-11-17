@@ -1,5 +1,5 @@
-import { Layout } from "../layouts/base.jsx";
-import { Avatar } from "../layouts/feed.jsx";
+import { Document } from "../components/document.jsx";
+import { Avatar } from "../components/feed.jsx";
 import { Icon } from "../components/icon.jsx";
 import { ReadableDate } from "../components/dates.jsx";
 import { Entry } from "../components/entry.jsx";
@@ -15,7 +15,12 @@ export default (data) => {
     return {
       url,
       component: (
-        <Layout {...data} url={url} title={post.title} page_style="article.css">
+        <Document
+          {...data}
+          url={url}
+          title={post.title}
+          page_style="article.css"
+        >
           <Article
             prev={prev}
             next={next}
@@ -28,7 +33,7 @@ export default (data) => {
           >
             {post.content}
           </Article>
-        </Layout>
+        </Document>
       ),
     };
   });

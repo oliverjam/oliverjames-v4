@@ -1,4 +1,4 @@
-import { Layout as Base } from "./base.jsx";
+import { Document } from "./document.jsx";
 import { Search } from "../components/search.jsx";
 import { Icon } from "../components/icon.jsx";
 
@@ -7,10 +7,10 @@ let sizes = {
   lg: 128,
 };
 
-export function Layout({ children, header, url, size = "md", ...data }) {
+export function Profile({ children, header, url, size = "md", ...data }) {
   return (
-    <Base {...data} url={url}>
-      <Profile>
+    <Document {...data} url={url}>
+      <Container>
         <Header>
           <Avatar size={sizes[size]} />
           {header}
@@ -18,12 +18,12 @@ export function Layout({ children, header, url, size = "md", ...data }) {
         <Search />
         <Nav url={url} />
         {children}
-      </Profile>
-    </Base>
+      </Container>
+    </Document>
   );
 }
 
-export function Profile({ children }) {
+export function Container({ children }) {
   return <div class="Profile BorderBetween">{children}</div>;
 }
 

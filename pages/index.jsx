@@ -1,10 +1,10 @@
-import { Layout, Feed } from "../layouts/feed.jsx";
+import { Profile, Feed } from "../components/feed.jsx";
 import { Entry } from "../components/entry.jsx";
 import { Icon } from "../components/icon.jsx";
 
 export default (data) => {
   return (
-    <Layout {...data} title="Home" size="lg" header={<Bio />}>
+    <Profile {...data} title="Home" size="lg" header={<Bio />}>
       <Feed>
         {data.posts.map((post) => (
           <li>
@@ -12,7 +12,7 @@ export default (data) => {
           </li>
         ))}
       </Feed>
-    </Layout>
+    </Profile>
   );
 };
 

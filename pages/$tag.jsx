@@ -1,4 +1,4 @@
-import { Layout, Feed } from "../layouts/feed.jsx";
+import { Profile, Feed } from "../components/feed.jsx";
 import { slug } from "../lib/slug.js";
 import { Entry } from "../components/entry.jsx";
 
@@ -9,7 +9,7 @@ export default (data) => {
     return {
       url,
       component: (
-        <Layout
+        <Profile
           {...data}
           url={url}
           title={"#" + tag}
@@ -23,7 +23,7 @@ export default (data) => {
               </li>
             ))}
           </Feed>
-        </Layout>
+        </Profile>
       ),
     };
   });
