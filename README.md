@@ -67,7 +67,17 @@ All `content/` files are rendered with the renderer in `lib/markdown.js`, which 
 
 ### Assets
 
-Currently the entire `assets/` directory is copied to `_site/assets` untouched. Probably the highest priority feature to add is hashing the file contents and changing the file name, so that I can configure immutable caching.
+Each file in `/assets` is copied through to `_site/assets` with a hash of its contents added to its filename. E.g. `assets/me.jpg -> _site/me.f5fd402f.jpg`. This ensures the path will change if the file contents do, allowing us to cache these files forever in the browser.
+
+Components can import a map of original file names to final hashed paths, since they otherwise cannot know the true path. For example:
+
+```jsx
+import { ASSETS } from "../lib/assets.js"
+
+function Avatar {
+  return <img src={ASSETS.get("me.jpg")} alt="Me!" />
+}
+```
 
 ### Dev server
 
