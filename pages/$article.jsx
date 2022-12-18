@@ -4,7 +4,7 @@ import { Avatar } from "../components/profile.jsx";
 import { Icon } from "../components/icon.jsx";
 import { ReadableDate } from "../components/dates.jsx";
 import { Entry } from "../components/entry.jsx";
-import { slug } from "../lib/slug.js";
+import { slugify } from "../lib/slugify.js";
 import { related } from "../lib/related.js";
 
 export default (data) => {
@@ -74,7 +74,7 @@ export default (data) => {
                 {tags.map((tag) => (
                   <a href={`/tags/${tag}`}>
                     #
-                    <span class="p-category" slug={slug(tag)}>
+                    <span class="p-category" slug={slugify(tag)}>
                       {tag}
                     </span>
                   </a>

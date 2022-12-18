@@ -1,11 +1,11 @@
 import { Profile, Feed } from "../components/profile.jsx";
 import { tags } from "../lib/data.js";
-import { slug } from "../lib/slug.js";
+import { slugify } from "../lib/slugify.js";
 import { Entry } from "../components/entry.jsx";
 
 export default (data) => {
   return Array.from(tags).map(([tag, posts]) => {
-    let url = `/tags/${slug(tag)}.html`;
+    let url = `/tags/${slugify(tag)}.html`;
     return {
       url,
       component: (
