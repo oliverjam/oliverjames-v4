@@ -23,7 +23,7 @@ A significant percentage of websites are effectively forms connected to a databa
 
 Here's a basic Express server that accomplishes this:
 
-```js
+```js server.js
 const express = require("express");
 
 const server = express();
@@ -62,8 +62,7 @@ Unfortunately the React ecosystem tends to prefer solving problems with client-s
 
 Here's a basic example of this in Next.js. You can also [load the full working example](https://stackblitz.com/edit/nextjs-7ei8fp?file=pages%2Findex.js).
 
-```jsx
-// pages/index.js
+```jsx pages/index.js
 import { useRouter } from "next/router";
 
 function Index() {
@@ -94,9 +93,7 @@ function Index() {
 }
 ```
 
-```js
-// pages/api/submit.js
-
+```js pages/api/submit.js
 export default function handler(req, res) {
   if (req.method === "POST") {
     db.save(req.body); // this part will be unique to your own DB setup
@@ -161,12 +158,10 @@ Note: you don't have to disable all client-side JS to use regular HTML forms. If
 
 Currently this form won't submit anywhere. We need to give it an `action` attribute to tell the browser what URL it should send the data to. This will be a [Next.js API route](https://nextjs.org/docs/api-routes/introduction), since that will execute server-side, receive our POST request, and can access the database.
 
-```js
-// pages/api/submit.js
-
+```js pages/api/submit.js
 export default function handler(req, res) {
   if (req.method === "POST") {
-    db.save(req.body); // this part will be unique to your particular DB setup
+    db.save(req.body); // this part will be unique to your own DB setup
     res.redirect("/success");
   }
 }
@@ -174,7 +169,7 @@ export default function handler(req, res) {
 
 We can then update our form with the correct `action` and `method` attributes:
 
-```html
+```html pages/index.js
 <form action="/api/submit" method="post"></form>
 ```
 

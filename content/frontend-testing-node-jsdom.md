@@ -27,11 +27,10 @@ The [jsdom Node library](https://github.com/jsdom/jsdom) is a huge, complex piec
 
 There are of course some complications to setting this up, which I have documented here. Let's try and write a test for a simple DOM app that converts a string to uppercase. Here's the brief source code:
 
-```html
-<!-- index.html -->
+```html index.html
 <form>
-  <label
-    >Text to uppercase
+  <label>
+    Text to uppercase
     <input name="input" />
   </label>
   <button>Convert</button>
@@ -43,14 +42,13 @@ There are of course some complications to setting this up, which I have document
 <script src="index.js"></script>
 ```
 
-```js
-// index.js
-
-document.querySelector("form").addEventListener("submit", (event) => {
+```js index.js
+let form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   let input = event.target.elements.input.value;
   let output = event.target.elements.output;
-  onput.textContent = input.value.toUpperCase();
+  output.textContent = input.value.toUpperCase();
 });
 ```
 
@@ -60,9 +58,7 @@ The code examples will assume you're using Node 18 and writing ES Modules rather
 
 jsdom's primary API is to load a string of JS. In our case we would like to load an HTML file, since that's how our app is structured. Luckily jsdom provides a method for this:
 
-```js
-// test.js
-
+```js test.js
 import { JSDOM } from "jsdom";
 
 let dom = await JSDOM.fromFile("index.html");
@@ -77,14 +73,10 @@ Unfortunately we _don't_ see our "hello from the browser" message logged. This i
 
 Since we know we'll only be running scripts that we wrote we can tell jsdom that it's safe:
 
-```js
-// test.js
-
+```js test.js
 import { JSDOM } from "jsdom";
 
-let dom = await JSDOM.fromFile("index.html", {
-  runScripts: "dangerously",
-});
+let dom = await JSDOM.fromFile("index.html", { runScripts: "dangerously" });
 ```
 
 Now re-running our test should show our browser-side log in the terminal too.
@@ -95,19 +87,21 @@ Let's try and write a simple test for our app. It should use jsdom to load the H
 
 To keep things simple and avoid any new dependencies we'll use [the new testing API in Node 18](https://nodejs.org/en/blog/announcements/v18-release-announce/#test-runner-module-experimental). This is similar to the [Tape](https://github.com/substack/tape) testing library.
 
-```js
+```js test.js
 import test from "node:test";
 import assert from "node:assert";
+import { JSDOM } from "jsdom";
 
 test("app converts lowercase to uppercase", async () => {
-  let dom = await JSDOM.fromFile("index.html", {
-    runScripts: "dangerously",
-  });
+  let dom = await JSDOM.fromFile("index.html", { runScripts: "dangerously" });
   let document = dom.window.document;
+
   let input = document.querySelector("input");
   input.value = "hello world";
+
   let button = document.querySelector("button");
   button.click();
+
   let output = document.querySelector("output");
   assert.equal(output.textContent, "HELLO WORLD");
 });
@@ -133,7 +127,7 @@ This should stop the default navigation and allow our submit handler to run. It 
 
 It turns out jsdom does not load external resources by default. This means linked CSS or JS files will not be loaded. We can change this with the `resources` option:
 
-```js
+```js test.js
 let dom = await JSDOM.fromFile("index.html", {
   runScripts: "dangerously",
   resources: "usable",
@@ -146,7 +140,7 @@ Running the test again will still fail with the same error. There is another pro
 
 We can fix this by waiting for the `load` event to fire on the DOM's `window` before running our test:
 
-```js
+```js test.js
 let dom = await JSDOM.fromFile("index.html", {
   runScripts: "dangerously",
   resources: "usable",
@@ -163,7 +157,7 @@ Running this test should work!
 
 We're likely to want to write more than one test, and it would be annoying to copy this code for each one. It's a good idea to load the app fresh each time to ensure the tests are fully isolated from each other, so lets abstract the jsdom setup into a `load` function that just needs a filename:
 
-```js
+```js helpers.js
 async function load(file) {
   let dom = await JSDOM.fromFile(file, {
     runScripts: "dangerously",
@@ -182,7 +176,9 @@ async function load(file) {
 
 Now we can use this in any test we need to access the DOM:
 
-```js
+```js test.js
+import { load } from "./helpers.js";
+
 test("app converts lowercase to uppercase", async () => {
   let { document } = await load("index.html");
   let input = document.querySelector("input");
