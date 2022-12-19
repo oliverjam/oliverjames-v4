@@ -113,7 +113,7 @@ I am aware I'm glossing over all the reasons people do use a framework like Next
 
 It just frustrates me that the habits of tech giants have taken over the industry in such a way that junior devs building simple projects get sucked into all this complexity. They're using tools that are overkill for the task at hand mostly because they need to have React projects in their portfolio to get a job.
 
-I'm probably going to right an opinion piece on the state of the modern frontend ecosystem at some point. Until then Tom MacWright's post ["Second guessing the modern web"](https://macwright.com/2020/05/10/spa-fatigue.html) is a great summary of the problems.
+I'm probably going to write an opinion piece on the state of the modern frontend ecosystem at some point. Until then Tom MacWright's post ["Second guessing the modern web"](https://macwright.com/2020/05/10/spa-fatigue.html) is a great summary of the problems.
 
 ## A better way
 
