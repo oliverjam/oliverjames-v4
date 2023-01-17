@@ -98,7 +98,7 @@ export default (data) => {
               <Entry reason="Next" {...next} />
             </li>
           )}
-          {related?.length &&
+          {related?.length > 0 &&
             related.map((post) => (
               <li>
                 <Entry reason="Related" {...post} />
