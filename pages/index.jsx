@@ -32,7 +32,7 @@ function Bio() {
           </li>
           <li>
             previously{" "}
-            <Link href="https://ticketmaster/co.uk" class="color-contrast">
+            <Link href="https://ticketmaster.co.uk" class="color-contrast">
               @ticketmaster
             </Link>
           </li>
