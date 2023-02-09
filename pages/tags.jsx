@@ -1,4 +1,5 @@
 import { tags } from "../lib/data.js";
+import { slugify } from "../lib/slugify.js";
 import { Profile } from "../components/profile.jsx";
 
 export default (data) => {
@@ -10,7 +11,7 @@ export default (data) => {
           .map(([tag, posts]) => (
             <li>
               <div>
-                <a href={`/tags/${tag}`} class="">
+                <a href={`/tags/${slugify(tag)}`} class="">
                   <b>#{tag}</b>
                 </a>
               </div>
