@@ -1,6 +1,7 @@
 import { ReadableDate } from "./dates.jsx";
 import { Icon } from "./icon.jsx";
 import { ellipsis } from "../lib/ellipsis.js";
+import { slugify } from "../lib/slugify.js";
 import { ASSETS } from "../lib/assets.js";
 
 export function Entry({
@@ -47,7 +48,7 @@ export function Entry({
       {tags && (
         <ul class="EntryTags">
           {tags.map((t) => (
-            <a href={`/tags/${t}`}>#{t}</a>
+            <a href={`/tags/${slugify(t)}`}>#{t}</a>
           ))}
         </ul>
       )}
@@ -75,8 +76,19 @@ export function Avatar() {
 function Media({ type, url, alt }) {
   switch (type) {
     case "photo":
-      return <img src={url} alt={alt || ""} loading="lazy" />;
+      return <Lightbox src={ASSETS.get(url)} alt={alt} />;
     default:
       return null;
   }
+}
+
+function Lightbox({ src, alt = " " }) {
+  return (
+    <details data-lightbox>
+      <summary>
+        <img src={src} alt={alt} loading="lazy" />
+      </summary>
+      <img src={src} loading="lazy" />
+    </details>
+  );
 }

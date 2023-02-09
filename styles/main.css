@@ -644,20 +644,6 @@ a[aria-current="page"] > svg {
   margin-block-start: var(--space-2);
 }
 
-.EntryMedia {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  align-items: stretch;
-  gap: var(--space-1);
-  border-radius: var(--space-4);
-  overflow: hidden;
-  position: relative;
-}
-
-.EntryMedia > img {
-  object-fit: cover;
-}
-
 .EntryTags {
   grid-area: tags;
   font-size: var(--font-2);
@@ -671,4 +657,97 @@ a[aria-current="page"] > svg {
 
 .EntryTags a {
   padding-inline: var(--px);
+}
+
+.EntryMedia {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  align-items: stretch;
+  gap: var(--space-1);
+  position: relative;
+}
+
+.EntryMedia > :first-child img {
+  border-start-start-radius: var(--space-4);
+  border-end-start-radius: var(--space-4);
+}
+
+.EntryMedia > :last-child img {
+  border-start-end-radius: var(--space-4);
+  border-end-end-radius: var(--space-4);
+}
+
+[data-lightbox] summary {
+  list-style: none;
+  cursor: zoom-in;
+  display: block;
+  height: 100%;
+}
+
+/* Hide arrow on Safari */
+[data-lightbox] summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-lightbox] > summary > img {
+  height: 100%;
+  object-fit: cover;
+}
+
+[data-lightbox][open] summary {
+  cursor: zoom-out;
+}
+
+[data-lightbox][open] summary::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: black;
+  opacity: 0.5;
+}
+
+[data-lightbox][open] summary::after {
+  content: "\00D7";
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: 4rem;
+  line-height: 1;
+  color: white;
+  z-index: 20;
+}
+
+[data-lightbox] summary ~ img {
+  width: auto;
+}
+
+[data-lightbox][open] summary ~ img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - var(--gutter));
+  max-height: calc(100% - var(--gutter));
+  border-radius: var(--space-4);
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 10%), 0 6px 12px hsla(0, 0%, 0%, 25%);
+  object-fit: cover;
+  z-index: 20;
+}
+
+[data-lightbox] summary:focus {
+  outline: 0;
+}
+
+[data-lightbox] summary:focus img {
+  outline: 0.125rem solid var(--focus);
+}
+
+[data-lightbox] summary:focus:not(:focus-visible) img {
+  outline: 0;
+}
+
+[data-lightbox] figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--textLight);
 }
