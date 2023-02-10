@@ -98,6 +98,12 @@ Second if you server-render and hydrate your HTML (as frameworks like Next.js an
 
 This is true of _all_ your markup, not only the icons, as it's a currently unavoidable side-effect of hydration. It's just more annoying here since icons are almost always static markup with no interactivity. If there are no event handlers or state attached to the icon then there's no need for it to be embedded in your JS.
 
+> “Please don't import SVGs as JSX. It's the most expensive form of sprite sheet: costs a minimum of 3x more than other techniques, and hurts both runtime (rendering) performance and memory usage.
+>
+> This bundle from a popular site is almost 50% SVG icons (250kb), and most are unused.”
+>
+> <cite><a href="https://twitter.com/_developit/status/1382838799420514317">Jason Miller (@\_developit)</a></cite>
+
 ### Best of both
 
 If you're working with a component system you can build an abstraction for rendering the `<use href="">` elements, but let the browser handle actually rendering the SVG. Here's the one I wrote for this site:
