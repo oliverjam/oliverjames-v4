@@ -47,6 +47,15 @@
   list-style-position: inside;
 }
 
+.ArticleContent blockquote {
+  border-inline-start: 0.25rem solid var(--contrast);
+  margin-inline: var(--gutter);
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--gutter);
+  background-color: var(--bg-dim);
+}
+
 code:not([class]) {
   box-decoration-break: clone;
   border-radius: 2px;
