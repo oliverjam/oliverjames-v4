@@ -50,8 +50,8 @@ export default (data) => {
     related,
   }) {
     return (
-      <div class="Profile BorderBetween font-serif">
-        <article class="BorderBetween h-entry">
+      <div class="Profile BorderBetween">
+        <article class="BorderBetween h-entry font-serif">
           <header class="ProfileHeader">
             <Avatar />
             <div class="grid gap-2">

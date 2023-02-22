@@ -545,29 +545,14 @@ a[aria-current="page"] > svg {
 }
 
 .Entry {
-  display: grid;
-  grid-template-columns: var(--img) 1fr;
-  grid-template-rows: auto auto 1fr;
-  grid-template-areas:
-    "icon meta"
-    "avatar title"
-    "avatar content"
-    "avatar tags";
+  display: flex;
   gap: var(--space-2);
   padding: var(--px);
   padding-block-end: var(--space-8);
-  line-height: 1;
-  font-family: system-ui, sans-serif;
-  transition: background-color 0.2s;
-  position: relative;
-}
-
-.Entry:hover {
-  background-color: var(--bg-dim);
+  line-height: 1.4;
 }
 
 .EntryMeta {
-  grid-area: meta;
   display: flex;
   gap: var(--space-1);
   align-items: center;
@@ -575,69 +560,24 @@ a[aria-current="page"] > svg {
   color: var(--text-bright);
 }
 
-.EntryMeta .p-name {
-  font-weight: bold;
-  color: var(--text);
-}
-
-.EntryIcon {
-  grid-area: icon;
-  justify-self: end;
-  color: var(--text-bright);
-}
-
 .EntryKind {
-  order: -1;
   border-radius: 2px;
   text-transform: capitalize;
   align-self: end;
-  color: var(--text-bright);
   font-family: system-ui, sans-serif;
 }
 
-.EntryLink {
-  order: 1;
-}
-
-.EntryLink:hover {
-  text-decoration: none;
-}
-
-.EntryLink::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.EntryLink:focus {
-  outline: none;
-}
-
-.EntryLink:focus::after {
-  outline: 0.125rem solid var(--focus);
-  outline-offset: -0.125rem;
-}
-
-.EntryLink:focus:not(:focus-visible)::after {
-  outline: 0;
-}
-
 .EntryTitle {
-  grid-area: title;
-  font-size: 1rem;
+  font-size: var(--font-3);
 }
 
-.EntryAvatar {
-  grid-area: avatar;
-}
-
-.EntryAvatar img {
+.EntryIcon {
+  align-self: flex-start;
+  display: grid;
+  place-content: center;
   border-radius: 50%;
-}
-
-.EntryContent {
-  grid-area: content;
-  line-height: 1.4;
+  padding: var(--space-2);
+  background-color: var(--border-dim);
 }
 
 .EntryContent > * + * {
@@ -645,18 +585,11 @@ a[aria-current="page"] > svg {
 }
 
 .EntryTags {
-  grid-area: tags;
-  font-size: var(--font-2);
   display: flex;
+  gap: var(--space-2);
   flex-wrap: wrap;
-  position: relative;
-  --px: var(--space-1);
-  /* Ensure tags line up with container edge */
-  margin-inline: calc(var(--px) * -1);
-}
-
-.EntryTags a {
-  padding-inline: var(--px);
+  font-size: var(--font-2);
+  color: var(--text-bright);
 }
 
 .EntryMedia {
@@ -665,16 +598,6 @@ a[aria-current="page"] > svg {
   align-items: stretch;
   gap: var(--space-1);
   position: relative;
-}
-
-.EntryMedia > :first-child img {
-  border-start-start-radius: var(--space-4);
-  border-end-start-radius: var(--space-4);
-}
-
-.EntryMedia > :last-child img {
-  border-start-end-radius: var(--space-4);
-  border-end-end-radius: var(--space-4);
 }
 
 [data-lightbox] summary {

@@ -14,72 +14,94 @@ export function Entry({
   content,
   tags,
   media,
+  link = true,
 }) {
   let href = `/${kind}s/${slug}`;
   return (
     <article class="Entry h-entry">
-      <Avatar />
-      <Icon class="EntryIcon" name={kind} size="14" />
-      <div class="EntryMeta">
-        <a class="EntryLink u-uid u-url" href={href}>
-          <ReadableDate month="short">{date}</ReadableDate>
-        </a>
-        <span aria-hidden="true">•</span>
-        <a href={"/" + kind} class="EntryKind">
-          {reason && <span>{reason} </span>}
-          <span class="p-kind">{kind}</span>
-        </a>
-      </div>
-      {title && <h2 class="EntryTitle p-name">{title}</h2>}
-      {intro ? (
-        <div class="EntryContent p-summary">{ellipsis(intro)}</div>
-      ) : (
-        <div class="EntryContent e-content">
+      <span class="EntryIcon">
+        <Icon name={kind} size="24" />
+      </span>
+      <div class="grid gap-2">
+        <Meta>
+          <Permalink show={link} href={href}>
+            <ReadableDate month="short">{date}</ReadableDate>
+          </Permalink>
+          <Dot />
+          <Kind reason={reason}>{kind}</Kind>
+        </Meta>
+        <Title href={href}>{title}</Title>
+        <Summary intro={intro}>
           {content}
-          {media && (
-            <div class="EntryMedia">
-              {media.map((m) => (
-                <Media {...m} />
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-      {tags && (
-        <ul class="EntryTags">
-          {tags.map((t) => (
-            <a href={`/tags/${slugify(t)}`}>#{t}</a>
-          ))}
-        </ul>
-      )}
+          <Media content={media} />
+        </Summary>
+        <Tags content={tags} />
+      </div>
     </article>
   );
 }
 
-export function Avatar() {
-  return (
-    <div class="EntryAvatar h-card p-author">
-      <a class="u-url" href="/" tabindex="-1">
-        <img
-          class="u-photo p-name"
-          src={ASSETS.get("me.jpg")}
-          alt="Oliver Phillips"
-          width="48"
-          height="48"
-          loading="lazy"
-        />
+function Meta({ children }) {
+  return <div class="EntryMeta">{children}</div>;
+}
+
+function Permalink({ show, href, children }) {
+  if (show) {
+    return (
+      <a class="EntryLink u-uid u-url" href={href}>
+        {children}
       </a>
-    </div>
+    );
+  } else {
+    return <div class="u-uid">{children}</div>;
+  }
+}
+
+function Dot() {
+  return <span aria-hidden="true">•</span>;
+}
+
+function Kind({ reason, children }) {
+  return (
+    <a href={"/" + children} class="EntryKind">
+      {reason && <span>{reason} </span>}
+      <span class="p-kind">{children}</span>
+    </a>
+  );
+}
+function Title({ href, children }) {
+  if (!children) return null;
+  return (
+    <h2 class="EntryTitle">
+      <a class="p-name" href={href}>
+        {children}
+      </a>
+    </h2>
   );
 }
 
-function Media({ type, url, alt }) {
-  switch (type) {
-    case "photo":
-      return <Lightbox src={ASSETS.get(url)} alt={alt} />;
-    default:
-      return null;
+function Summary({ intro, children }) {
+  if (intro) {
+    return <div class="EntryContent p-summary">{ellipsis(intro)}</div>;
+  } else {
+    return <div class="EntryContent e-content">{children}</div>;
   }
+}
+
+function Media({ content }) {
+  if (!content) return null;
+  return (
+    <div class="EntryMedia">
+      {content.map(({ type, url, alt }) => {
+        switch (type) {
+          case "photo":
+            return <Lightbox src={ASSETS.get(url)} alt={alt} />;
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
 }
 
 function Lightbox({ src, alt = " " }) {
@@ -90,5 +112,16 @@ function Lightbox({ src, alt = " " }) {
       </summary>
       <img src={src} loading="lazy" />
     </details>
+  );
+}
+
+function Tags({ content }) {
+  if (!content) return null;
+  return (
+    <ul class="EntryTags">
+      {content.map((t) => (
+        <a href={`/tags/${slugify(t)}`}>#{t}</a>
+      ))}
+    </ul>
   );
 }
