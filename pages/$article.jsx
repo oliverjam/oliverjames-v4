@@ -54,7 +54,7 @@ export default (data) => {
         <article class="BorderBetween h-entry font-serif">
           <header class="ProfileHeader">
             <Avatar />
-            <div class="grid gap-2">
+            <div class="grid gap-2" style="margin-block-start: var(--space-3)">
               <div class="flex items-center gap-3 font-2 color-bright font-sans">
                 <a href="/articles" class="EntryKind flex items-center gap-1">
                   <Icon name="article" size="16" />
