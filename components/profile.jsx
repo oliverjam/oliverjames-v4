@@ -55,7 +55,7 @@ export function Nav({ url }) {
         <Icon size="16" name="article" />
         Articles
       </a>
-      <a class="ProfileNavLink" title="Coming soon">
+      <a class="ProfileNavLink" {...to(url, "/notes")}>
         <Icon size="16" name="note" />
         Notes
       </a>

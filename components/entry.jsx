@@ -14,9 +14,9 @@ export function Entry({
   content,
   tags,
   media,
-  link = true,
+  preview = true,
 }) {
-  let href = `/${kind}s/${slug}`;
+  let href = preview && `/${kind}s/${slug}`;
   return (
     <article class="Entry h-entry">
       <span class="EntryIcon">
@@ -24,7 +24,7 @@ export function Entry({
       </span>
       <div class="grid gap-2">
         <Meta>
-          <Permalink show={link} href={href}>
+          <Permalink href={href}>
             <ReadableDate month="short">{date}</ReadableDate>
           </Permalink>
           <Dot />
@@ -45,8 +45,8 @@ function Meta({ children }) {
   return <div class="EntryMeta">{children}</div>;
 }
 
-function Permalink({ show, href, children }) {
-  if (show) {
+function Permalink({ href, children }) {
+  if (href) {
     return (
       <a class="EntryLink u-uid u-url" href={href}>
         {children}
@@ -71,6 +71,7 @@ function Kind({ reason, children }) {
 }
 function Title({ href, children }) {
   if (!children) return null;
+  if (!href) return <h2 class="EntryTitle p-name">{children}</h2>;
   return (
     <h2 class="EntryTitle">
       <a class="p-name" href={href}>
