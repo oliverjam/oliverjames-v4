@@ -18,7 +18,7 @@ export function Search() {
         action="https://duckduckgo.com"
         target="_blank"
         rel="noopener"
-        onsubmit="this.elements.k7.value = getComputedStyle(document.documentElement).backgroundColor"
+        onsubmit="this.k7.value = getComputedStyle(document.documentElement).backgroundColor"
       >
         <input type="hidden" name="ko" value="-2" />
         <input type="hidden" name="k1" value="-1" />
