@@ -24,11 +24,11 @@ export function Entry({
       </span>
       <div class="grid gap-2">
         <Meta>
+          <Kind reason={reason}>{kind}</Kind>
+          <Dot />
           <Permalink href={href}>
             <ReadableDate month="short">{date}</ReadableDate>
           </Permalink>
-          <Dot />
-          <Kind reason={reason}>{kind}</Kind>
         </Meta>
         <Title href={href}>{title}</Title>
         <Summary intro={intro}>
