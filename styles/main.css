@@ -517,6 +517,7 @@ a[aria-current="page"] > svg {
 .ProfileNavLink {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--space-1);
   padding-block: var(--py);
   padding-inline: calc(var(--px) / 2);
