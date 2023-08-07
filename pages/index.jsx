@@ -26,14 +26,14 @@ function Bio() {
           <li>weird web person</li>
           <li>
             previously{" "}
-            <Link href="https://foundersandcoders.com" class="color-contrast">
-              @founderscoders
+            <Link href="https://foundersandcoders.com">
+              <b>@founderscoders</b>
             </Link>
           </li>
           <li>
             previously{" "}
-            <Link href="https://ticketmaster.co.uk" class="color-contrast">
-              @ticketmaster
+            <Link href="https://ticketmaster.co.uk">
+              <b>@ticketmaster</b>
             </Link>
           </li>
           <li>he/him</li>
