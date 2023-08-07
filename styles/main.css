@@ -20,7 +20,7 @@ html {
   --shade-10: hsl(176, 42%, 23%);
   --shade-11: hsl(180, 40%, 18%);
   --shade-12: hsl(184, 38%, 8%);
-  --contrast: hsl(320, 70%, 49%);
+  --contrast: hsl(210, 100%, 57%);
   --text-light: var(--shade-9);
   --text-dark: var(--shade-1);
   --text: var(--text-light);
@@ -61,7 +61,7 @@ html {
     --shade-10: hsl(180, 32%, 23%);
     --shade-11: hsl(184, 30%, 10%);
     --shade-12: hsl(188, 28%, 7%);
-    --contrast: hsl(320, 75%, 60%);
+    --contrast: hsl(210, 100%, 45%);
     --text: var(--text-dark);
     --text-bright: var(--shade-6);
     --bg: var(--shade-12);
