@@ -10,6 +10,9 @@ let opts = {
 };
 
 try {
+  console.log("testing");
+
+  throw new Error("also testing");
   // let start = performance.now();
   // let count = 0;
 
