@@ -20,7 +20,7 @@ try {
 
   let path = join(opts.assets_dir, "me.jpg");
   let file = Bun.file(path);
-  let content = await file.text();
+  let content = "abc";
   let hash = Bun.hash(content);
   let subdir = opts.assets_dir.replace(/assets\/?/, "");
   let { name, ext, base, dir } = parse(path);
