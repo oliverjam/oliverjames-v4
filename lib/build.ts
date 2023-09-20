@@ -12,21 +12,25 @@ let opts = {
 try {
   console.log("testing");
 
-  throw new Error("also testing");
   // let start = performance.now();
   // let count = 0;
 
   await empty("_site");
 
-  // let assets = walk(opts.assets_dir, async ({ path, dir, name, ext, base }) => {
-  //   let content = await Bun.file(path).arrayBuffer();
-  //   let hash = Bun.hash(content);
-  //   let subdir = dir.replace(/assets\/?/, "");
-  //   let hashed_name = name + "." + hash + ext;
-  //   let out = join(opts.out_dir, dir, hashed_name);
-  //   ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
-  //   await write(out, content);
-  // });
+  let assets = await walk(
+    opts.assets_dir,
+    async ({ path, dir, name, ext, base }) => {
+      let content = await Bun.file(path).arrayBuffer();
+      let hash = Bun.hash(content);
+      let subdir = dir.replace(/assets\/?/, "");
+      let hashed_name = name + "." + hash + ext;
+      let out = join(opts.out_dir, dir, hashed_name);
+      ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
+      await write(out, content);
+    },
+  );
+
+  console.log(assets);
 
   // let pages = walk(opts.pages_dir, async (entry) => {
   //   try {
