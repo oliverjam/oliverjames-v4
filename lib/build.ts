@@ -2,6 +2,7 @@ import { empty, join, walk, write } from "./fs.js";
 import { render } from "./jsx/render.js";
 import { ASSETS } from "./assets.js";
 import { parse } from "node:path";
+import { readFile } from "node:fs/promises";
 // import "./data.js"; // preload to avoid unitialised variable errors
 
 let opts = {
@@ -23,7 +24,8 @@ try {
   let exists = await file.exists();
   console.log({ exists });
   console.log(file);
-  let content = await file.text();
+  let content = await readFile("README.md");
+  // let content = await file.text();
   console.log({ content });
   // let content = "abc";
   // let hash = Bun.hash(content);
