@@ -22,16 +22,18 @@ try {
   let file = Bun.file(path);
   let exists = await file.exists();
   console.log({ exists });
-  let content = "abc";
-  let hash = Bun.hash(content);
-  let subdir = opts.assets_dir.replace(/assets\/?/, "");
-  let { name, ext, base, dir } = parse(path);
-  let hashed_name = name + "." + hash + ext;
-  let out = join(opts.out_dir, dir, hashed_name);
-  ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
-  await write(out, file);
+  let content = await file.arrayBuffer();
+  console.log({ content });
+  // let content = "abc";
+  // let hash = Bun.hash(content);
+  // let subdir = opts.assets_dir.replace(/assets\/?/, "");
+  // let { name, ext, base, dir } = parse(path);
+  // let hashed_name = name + "." + hash + ext;
+  // let out = join(opts.out_dir, dir, hashed_name);
+  // ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
+  // await write(out, file);
 
-  console.log(ASSETS);
+  // console.log(ASSETS);
 
   // let assets = await walk(
   //   opts.assets_dir,
