@@ -68,6 +68,8 @@ try {
   // let time = Math.round(end - start);
   // console.log(`\x1b[34m🛎  Wrote ${count} pages in ${time}ms\x1b[39m`);
 } catch (e) {
+  if (e instanceof Error) console.log(e.message);
+  console.log("Can I log inside a catch?");
   console.error("\x1b[31m🚨 Failed to complete build");
   console.error(e);
   process.exit(1);
