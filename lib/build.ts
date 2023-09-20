@@ -19,15 +19,15 @@ try {
   await empty("_site");
 
   let path = join(opts.assets_dir, "me.jpg");
-  // let content = await Bun.file(path).arrayBuffer();
-  let content = "abc";
+  let file = Bun.file(path);
+  let content = await file.arrayBuffer();
   let hash = Bun.hash(content);
   let subdir = opts.assets_dir.replace(/assets\/?/, "");
   let { name, ext, base, dir } = parse(path);
   let hashed_name = name + "." + hash + ext;
   let out = join(opts.out_dir, dir, hashed_name);
   ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
-  await write(out, content);
+  await write(out, file);
 
   console.log(ASSETS);
 

@@ -29,7 +29,10 @@ export async function walk(dir: string, cb: (entry: Entry) => Promise<void>) {
   return Promise.all(tasks);
 }
 
-export async function write(path: string, content: string | ArrayBuffer) {
+export async function write(
+  path: string,
+  content: string | ArrayBuffer | Blob,
+) {
   await mkdir(dirname(path), { recursive: true });
   await Bun.write(path, content);
 }
