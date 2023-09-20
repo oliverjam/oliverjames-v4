@@ -20,6 +20,8 @@ try {
 
   let path = join(opts.assets_dir, "me.jpg");
   let file = Bun.file(path);
+  let exists = await file.exists();
+  console.log({ exists });
   let content = "abc";
   let hash = Bun.hash(content);
   let subdir = opts.assets_dir.replace(/assets\/?/, "");
