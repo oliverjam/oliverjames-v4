@@ -19,10 +19,11 @@ try {
   await empty("_site");
 
   let path = join(opts.assets_dir, "me.jpg");
-  let file = Bun.file(path);
+  let file = Bun.file("README.md");
   let exists = await file.exists();
   console.log({ exists });
-  let content = await file.arrayBuffer();
+  console.log(file);
+  let content = await file.text();
   console.log({ content });
   // let content = "abc";
   // let hash = Bun.hash(content);
