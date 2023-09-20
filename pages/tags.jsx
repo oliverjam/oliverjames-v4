@@ -1,4 +1,3 @@
-import { tags } from "../lib/data.js";
 import { slugify } from "../lib/slugify.js";
 import { Profile } from "../components/profile.jsx";
 
@@ -6,7 +5,7 @@ export default (data) => {
   return (
     <Profile {...data} title="Tags" size="lg" header={<h1>Tags</h1>}>
       <ol class="grid gap-3 gutter py-6">
-        {Array.from(tags)
+        {Array.from(data.tags)
           .sort((a, b) => b[1].length - a[1].length)
           .map(([tag, posts]) => (
             <li>

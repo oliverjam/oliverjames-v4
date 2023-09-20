@@ -1,8 +1,7 @@
-import { styles } from "../lib/data.js";
 export let url = "rss.xsl";
 
-export default () => {
-  let css = styles.get("main.css");
+export default (data) => {
+  let css = data.styles.get("main.css");
   return /*xml*/ `
 <xsl:stylesheet
   version="3.0"

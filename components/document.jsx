@@ -1,7 +1,6 @@
 import { ASSETS } from "../lib/assets.js";
-import { styles } from "../lib/data.js";
 
-export function Document({ title, children, page_style }) {
+export function Document({ title, children, styles, page_style }) {
   return (
     <html lang="en">
       <head>

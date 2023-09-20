@@ -1,4 +1,3 @@
-import { posts } from "../lib/data.js";
 import { Profile, Feed } from "../components/profile.jsx";
 import { Entry } from "../components/entry.jsx";
 import { Icon } from "../components/icon.jsx";
@@ -7,7 +6,7 @@ export default (data) => {
   return (
     <Profile {...data} title="Home" size="lg" header={<Bio />}>
       <Feed>
-        {posts.map((post) => (
+        {data.posts.map((post) => (
           <li>
             <Entry {...post} />
           </li>
