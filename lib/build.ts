@@ -13,7 +13,7 @@ try {
   // let start = performance.now();
   // let count = 0;
 
-  // await empty("_site");
+  await empty("_site");
 
   // let assets = walk(opts.assets_dir, async ({ path, dir, name, ext, base }) => {
   //   let content = await Bun.file(path).arrayBuffer();
