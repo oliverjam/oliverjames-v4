@@ -24,8 +24,7 @@ try {
   let exists = await file.exists();
   console.log({ exists });
   console.log(file);
-  let content = await readFile("README.md");
-  // let content = await file.text();
+  let content = await file.text();
   console.log({ content });
   // let content = "abc";
   // let hash = Bun.hash(content);
