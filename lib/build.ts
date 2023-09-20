@@ -1,7 +1,7 @@
 import { empty, join, walk, write } from "./fs.js";
 import { render } from "./jsx/render.js";
 import { ASSETS } from "./assets.js";
-import "./data.js"; // preload to avoid unitialised variable errors
+// import "./data.js"; // preload to avoid unitialised variable errors
 
 let opts = {
   assets_dir: "assets",
