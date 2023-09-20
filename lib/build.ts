@@ -19,7 +19,8 @@ try {
   await empty("_site");
 
   let path = join(opts.assets_dir, "me.jpg");
-  let content = await Bun.file(path).arrayBuffer();
+  // let content = await Bun.file(path).arrayBuffer();
+  let content = "abc";
   let hash = "123";
   let subdir = opts.assets_dir.replace(/assets\/?/, "");
   let { name, ext, base, dir } = parse(path);
