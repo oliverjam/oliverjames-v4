@@ -1,6 +1,7 @@
 import { empty, join, walk, write } from "./fs.js";
 import { render } from "./jsx/render.js";
 import { ASSETS } from "./assets.js";
+import { parse } from "node:path";
 // import "./data.js"; // preload to avoid unitialised variable errors
 
 let opts = {
@@ -17,20 +18,30 @@ try {
 
   await empty("_site");
 
-  let assets = await walk(
-    opts.assets_dir,
-    async ({ path, dir, name, ext, base }) => {
-      let content = await Bun.file(path).arrayBuffer();
-      let hash = Bun.hash(content);
-      let subdir = dir.replace(/assets\/?/, "");
-      let hashed_name = name + "." + hash + ext;
-      let out = join(opts.out_dir, dir, hashed_name);
-      ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
-      await write(out, content);
-    },
-  );
+  let path = join(opts.assets_dir, "me.jpg");
+  let content = await Bun.file(path).arrayBuffer();
+  let hash = Bun.hash(content);
+  let subdir = opts.assets_dir.replace(/assets\/?/, "");
+  let { name, ext, base, dir } = parse(path);
+  let hashed_name = name + "." + hash + ext;
+  let out = join(opts.out_dir, dir, hashed_name);
+  ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
+  await write(out, content);
 
-  console.log(assets);
+  console.log(ASSETS);
+
+  // let assets = await walk(
+  //   opts.assets_dir,
+  //   async ({ path, dir, name, ext, base }) => {
+  //     let content = await Bun.file(path).arrayBuffer();
+  //     let hash = Bun.hash(content);
+  //     let subdir = dir.replace(/assets\/?/, "");
+  //     let hashed_name = name + "." + hash + ext;
+  //     let out = join(opts.out_dir, dir, hashed_name);
+  //     ASSETS.set(join(subdir, base), join("/", dir, hashed_name));
+  //     await write(out, content);
+  //   },
+  // );
 
   // let pages = walk(opts.pages_dir, async (entry) => {
   //   try {
