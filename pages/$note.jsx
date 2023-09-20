@@ -1,8 +1,9 @@
+import { posts } from "../lib/data.js";
 import { Profile, Feed } from "../components/profile.jsx";
 import { Entry } from "../components/entry.jsx";
 
 export default (data) => {
-  return data.posts.map((post) => {
+  return posts.map((post) => {
     let url = `/notes/${post.slug}.html`;
     let raw = post.raw;
     let title = raw.length <= 140 ? raw : raw.slice(0, 140).concat("...");

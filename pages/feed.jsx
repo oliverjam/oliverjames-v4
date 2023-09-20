@@ -1,8 +1,10 @@
+import { posts } from "../lib/data.js";
+
 export let url = "feed.xml";
 
-export default (data) => {
-  let last_updated = new Date(data.posts[0].date);
-  let articles = data.posts.filter((post) => post.kind === "article");
+export default () => {
+  let last_updated = new Date(posts[0].date);
+  let articles = posts.filter((post) => post.kind === "article");
   return /*xml*/ `
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="/rss.xsl" type="text/xsl"?>

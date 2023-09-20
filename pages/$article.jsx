@@ -1,3 +1,4 @@
+import { posts, tags } from "../lib/data.js";
 import { Document } from "../components/document.jsx";
 import { Avatar } from "../components/profile.jsx";
 import { Icon } from "../components/icon.jsx";
@@ -7,9 +8,9 @@ import { slugify } from "../lib/slugify.js";
 import { related } from "../lib/related.js";
 
 export default (data) => {
-  return data.posts.map((post, index) => {
-    let prev = data.posts[index + 1];
-    let next = data.posts[index - 1];
+  return posts.map((post, index) => {
+    let prev = posts[index + 1];
+    let next = posts[index - 1];
     let url = `/articles/${post.slug}.html`;
     return {
       url,
@@ -28,7 +29,7 @@ export default (data) => {
             time={post.time}
             tags={post.tags}
             intro={post.intro}
-            related={related(post, data.tags, prev, next)}
+            related={related(post, tags, prev, next)}
           >
             {post.content}
           </Article>
