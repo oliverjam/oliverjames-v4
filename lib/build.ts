@@ -19,7 +19,6 @@ try {
 
   await empty("_site");
 
-  let path = join(opts.assets_dir, "me.jpg");
   let file = Bun.file("README.md");
   let exists = await file.exists();
   console.log({ exists });
