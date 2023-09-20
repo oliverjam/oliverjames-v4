@@ -1,0 +1,22 @@
+{
+  "name": "oliverjames-v4",
+  "type": "module",
+  "scripts": {
+    "build": "bun run lib/build.ts",
+    "dev": "bun run --watch lib/build.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "jsx": "./lib/jsx",
+    "marked": "^9.0.0",
+    "react": "^18.2.0",
+    "js-yaml": "^4.1.0",
+    "prismjs": "^1.29.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "volta": {
+    "node": "20.6.1"
+  }
+}
