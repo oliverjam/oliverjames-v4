@@ -2,7 +2,7 @@
   line-height: 1.6;
 }
 
-.ArticleContent > :not(:is(img, table), p:has(> img, > video)) {
+.ArticleContent > :not(:is(img, table p:has(> img, > video))) {
   padding-inline: var(--gutter);
 }
 
