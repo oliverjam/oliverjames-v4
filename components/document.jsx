@@ -19,7 +19,6 @@ export function Document({ title, children, page_style }) {
         {page_style && styles.has(page_style) && (
           <style>{styles.get(page_style)}</style>
         )}
-        <script type="module" src={ASSETS.get("js/lightbox.js")}></script>
       </head>
       <body>
         <a class="skip" href="#main">

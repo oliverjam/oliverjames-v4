@@ -107,7 +107,7 @@ function Media({ content }) {
 
 function Lightbox({ src, alt = " " }) {
   return (
-    <details data-lightbox>
+    <details data-lightbox onkeydown="if (event.key === 'Escape') this.removeAttribute('open')">
       <summary>
         <img src={src} alt={alt} loading="lazy" />
       </summary>
