@@ -31,7 +31,7 @@ looks like this when converted to JS:
 import { jsx as _jsx } from "react/jsx-runtime";
 
 function Greeting() {
-	return jsx("h1", { children: "Hello" });
+	return _jsx("h1", { children: "Hello" });
 }
 ```
 
@@ -40,8 +40,8 @@ When called this function returns an object that looks something like this:
 ```json
 {
 	"$$typeof": Symbol("react.element"),
-	"props": { "children": "I'm a button" },
-	"type": "button",
+	"props": { "children": "Hello" },
+	"type": "h1",
 }
 ```
 
@@ -73,7 +73,7 @@ import "global-jsdom/register";
 
 ## Dealing with JSX
 
-Node doesn't understand JSX syntax. There are a couple of ways to deal with this: either compile your code with something like esbuild or Babel, or use [a Node module hook](https://nodejs.org/api/module.html#transpilation) to compile it on the fly as you import it.
+Node doesn't understand JSX syntax. There are a couple of ways to deal with this: either compile your code in advance with something like esbuild or Babel, or use [a Node module hook](https://nodejs.org/api/module.html#transpilation) to compile it on the fly as you import it.
 
 To make things simpler here we're going to use the [Bun](https://bun.sh) runtime, which supports JSX natively.
 
@@ -259,7 +259,7 @@ export function cleanup() {
 
 Note that just like when we render into a React root, we also wrap the unmount in `act` to make sure it happens at the right time.
 
-Now when we run our two tests again the second one fails as it should, since the DOM now only contains the `span`:
+Now when we run our two tests again the second one fails as it should, since the DOM only contains the `span`:
 
 ```html
 <div><span>goodbye</span></div>
@@ -285,7 +285,7 @@ test("Counter can increment", () => {
 	render(<Counter />);
 	let button = document.querySelector("button");
 	if (!button) throw new Error("could not find <button>");
-	expect(button?.textContent).toBe("0");
+	expect(button.textContent).toBe("0");
 });
 ```
 
@@ -450,4 +450,4 @@ export function setValue(element, value) {
 
 This hopefully demystifies React testing a bit—there's not much magic happening; it's mostly just regular DOM stuff with a few weird bits due to React's strange internals.
 
-My main takeaway would probably be to just use React Testing Library, since it handles a lot of edge-cases for you and provides lots more convenient helpers too.
+My main takeaway would be to just use React Testing Library, since it handles a lot of edge-cases for you and provides lots more convenient helpers too.
