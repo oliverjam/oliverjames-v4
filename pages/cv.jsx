@@ -11,13 +11,15 @@ export default () => /*html*/ `
 		margin: 0;
 	}
 	body {
+		--accent: light-dark(turquoise, tomato);
+		--secondary: light-dark(#ccc, #666);
 		margin: 0 auto;
 		max-inline-size: 70rem;
 		display: grid;
 		gap: 2rem;
 		padding: 4rem 2rem;
-		font: 1.125rem/1.6 Georgia, serif;
-		line-height: 1.4;
+		font: 1.125rem/1.4 Georgia, serif;
+		color: light-dark(#333, #ddd);
 		@media (width >= 54em) {
 			grid-template-columns: 1fr 20rem;
 		}
@@ -29,17 +31,14 @@ export default () => /*html*/ `
 		margin-block: 2rem;
 		border-style: solid;
 		color: aqua;
-		color: light-dark(turquoise, tomato);
+		color: var(--accent);
 	}
 	a {
-	color: inherit;
-	text-decoration: none;
+		color: inherit;
+		text-decoration: none;
 	}
 	a:not(:is([href^=mail], [href^=tel])) {
-		text-decoration-line: underline;
-		text-decoration-color: #ccc;
-		text-decoration-color: light-dark(#ccc, #666);
-		text-decoration-thickness: 2px;
+		text-decoration: underline var(--secondary) 2px;
 		text-underline-offset: 3px;
 	}
 	h2 {
@@ -63,6 +62,9 @@ export default () => /*html*/ `
 	}
 	ul {
 		padding-inline-start: 1em;
+		& ::marker {
+			color: var(--secondary);
+		}
 	}
 	li + li {
 		margin-block-start: 0.5rem;
@@ -172,6 +174,12 @@ The backend framework I've always wanted JavaScript to have.
 Just enough batteries included to build simple fullstack apps using JSX and SQLite.
 Still in-progress, but complete enough that I am building other projects with it.
 <p><a href=https://github.com/oliverjam/hypa>github.com/oliverjam/hypa</a>
+	
+<h3>Transclusion</h3>
+<p>
+A frontend library for declaratively adding interactivity to server-rendered apps.
+Inspired by HTMX but focused on progressive enhancement and simplicity.
+<p><a href=https://github.com/oliverjam/transclusion>github.com/oliverjam/transclusion</a>
 
 <hr>
 
