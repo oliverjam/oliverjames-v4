@@ -15,20 +15,27 @@ export default () => /*html*/ `
 		--secondary: light-dark(#ccc, #666);
 		margin: 0 auto;
 		max-inline-size: 70rem;
+		padding: 4rem 2rem;
 		display: grid;
 		gap: 2rem;
-		padding: 4rem 2rem;
 		font: 1.125rem/1.4 Georgia, serif;
 		color: light-dark(#333, #ddd);
 		@media (width >= 54em) {
 			grid-template-columns: 1fr 20rem;
 		}
+		@media print {
+			grid-template-columns: 1fr 16rem;
+			font-size: 0.875rem;
+			padding: 0;
+		}
 	}
-	:is(main, aside) > * + * {
-		margin-top: 2rem;
+	:is(main, aside) {
+		> * + * {
+			margin-block-start: 1.5rem;
+		}
 	}
 	hr {
-		margin-block: 2rem;
+		margin-block: 3rem;
 		border-style: solid;
 		color: aqua;
 		color: var(--accent);
@@ -38,8 +45,15 @@ export default () => /*html*/ `
 		text-decoration: none;
 	}
 	a:not(:is([href^=mail], [href^=tel])) {
-		text-decoration: underline var(--secondary) 2px;
+		text-decoration-line: underline;
+		text-decoration-color: var(--secondary);
+		text-decoration-thickness: 2px;
 		text-underline-offset: 3px;
+	}
+	h1 {
+		text-decoration-line: underline;
+		text-decoration-color: var(--accent);
+		text-decoration-thickness: 3px;
 	}
 	h2 {
 		text-transform: uppercase;
@@ -53,8 +67,11 @@ export default () => /*html*/ `
 			margin-block-start: 0.5rem;
 		}
 	}
+	:is(h2, h3) {
+		font-weight: 500;
+	}
 	h2 + h3 {
-		margin-block-start: 1rem;
+		margin-block-start: 1.5rem;
 	}
 	nav > ul {
 		padding-inline-start: 0;
@@ -62,6 +79,7 @@ export default () => /*html*/ `
 	}
 	ul {
 		padding-inline-start: 1em;
+		break-inside: avoid;
 		& ::marker {
 			color: var(--secondary);
 		}
@@ -85,12 +103,11 @@ export default () => /*html*/ `
 
 <h2>Bio</h2>
 <p>
-I'm a knowledgeable fullstack developer with a penchant for simple code focused on solving problems for the end user.
-I've been surfing the world wide web for 25 years, and I am continually excited that I get to build things for it.
-My preference is to work in product teams where everyone feels invested in working towards what's best for users,
+I'm a knowledgeable fullstack developer with a fondness for simple code focused on solving problems for the end user.
+I like working in product teams where everyone feels invested in working towards what's best for users,
 creating performant, accessible and usable experiences.
 <p>I write a lot of <a href=https://github.com/oliverjam>open source code</a> for fun,
-and I <a href=https://oliverjam.com>blog about</a> my many coding opinions.
+and I <a href=https://oliverjam.com>blog about</a> my many opinions.
 I enjoy nerding out about coffee and shaving bytes off my SVGs.
 
 <hr>
@@ -102,9 +119,9 @@ I enjoy nerding out about coffee and shaving bytes off my SVGs.
 <ul>
 <li>
 Designed and developed a desk management and remote working platform for Delta's new Soho office space.
-Allowed employees to easily manage desk bookings and office admins to track usage and capacity.
-<li>Deployed a fullstack Node.js and SQLite app to their existing Azure cloud and authenticated with employee Microsoft Entra accounts.
-<li>Focused on robust, simple code with a well-architected database as this was a solo project handed over to a client to manage internally.
+Allowed employees to easily manage desk bookings, and office admins to track usage and capacity.
+<li>Deployed a fullstack Node.js and SQLite app to their Azure cloud and authenticated with existing employee Microsoft Entra accounts.
+<li>Focused on robust, simple code with a well-architected database as this was a solo project handed over to the client to manage internally.
 </ul>
 
 <h3>Founders and Coders</h3>
@@ -183,7 +200,7 @@ Inspired by HTMX but focused on progressive enhancement and simplicity.
 
 <hr>
 
-<h2>Tech experience</h2>
+<h2 style="break-before: page">Tech experience</h2>
 
 <ul>
 <li>TypeScript
@@ -217,27 +234,5 @@ Inspired by HTMX but focused on progressive enhancement and simplicity.
 
 <h3>University of Manchester | 2009-2012</h3>
 <p>BA Philosophy, Politics & Economics Upper Second Class</p>
-
-<!-- <dl>
-<dt>Education level<dd>A-Level
-<dt>Institution<dd>Bancroft's School
-<dt>Date<dd>2009
-<dt>Results
-<dd>Maths: A
-<dd>Physics: A
-<dd>History: A
-<dd>Critical Thinking: A (AS)
-</dl>
-
-<dl>
-<dt>Education level<dd>GCSE
-<dt>Institution<dd>Bancroft's School
-<dt>Date<dd>2007
-<dt>Results
-<dd>5 A*s
-<dd>4 As
-<dd>Including English & Maths
-</dl> -->
-
 </aside>
 `;
