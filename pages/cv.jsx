@@ -54,6 +54,7 @@ export default () => /*html*/ `
 		text-decoration-line: underline;
 		text-decoration-color: var(--accent);
 		text-decoration-thickness: 3px;
+		text-underline-offset: 3px;
 	}
 	h2 {
 		text-transform: uppercase;
