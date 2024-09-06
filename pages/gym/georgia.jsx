@@ -72,6 +72,8 @@ export default () => /*html*/ `
 	}
 
 	[popover] {
+		max-inline-size: min(100%, 40rem);
+		margin-inline: auto;
 		top: auto;
 		bottom: 0;
 		border-radius: 1rem 1rem 0 0;
@@ -88,6 +90,23 @@ export default () => /*html*/ `
 		&:not(:popover-open) {
 			translate: 0 100%;
 		}
+		&::backdrop {
+			background-color: light-dark(#fff8, #0008);
+		}
+
+		@media (min-width: 40em) {
+			padding: 1.5rem;
+		}
+	}
+
+	[popovertargetaction=close] {
+		margin-inline-start: auto;
+		display: grid;
+		place-content: center;
+		border: 0;
+		padding: 0.5rem;
+		background-color: transparent;
+		font-size: 16px;
 	}
 
 	img {
@@ -105,13 +124,14 @@ export default () => /*html*/ `
 <tr><th>Weight<th>Sets<th>Reps<th>Exercise       <th>Help
 <tr><td>20kg  <td>2   <td>12  <td>Hamstring curl <td><button popovertarget=curl>?</button></tr>
 <tr><td>20kg  <td>2   <td>10  <td>Squat          <td><button popovertarget=squat>?</button></tr>
-<tr><td>05kg  <td>2   <td>12  <td>Shoulder press <td><button popovertarget=ohp>?</button></tr>
-<tr><td>14kg  <td>2   <td>12  <td>Lat pull down  <td><button popovertarget=curl>?</button></tr>
-<tr><td>10kg  <td>2   <td>12  <td>Chest press    <td><button popovertarget=curl>?</button></tr>
-<tr><td>15kg  <td>2   <td>12  <td>Row            <td><button popovertarget=curl>?</button></tr>
+<tr><td>05kg  <td>2   <td>10  <td>Shoulder press <td><button popovertarget=ohp>?</button></tr>
+<tr><td>14kg  <td>2   <td>12  <td>Lat pull down  <td><button popovertarget=lat>?</button></tr>
+<tr><td>10kg  <td>2   <td>12  <td>Chest press    <td><button popovertarget=chest>?</button></tr>
+<tr><td>15kg  <td>2   <td>12  <td>Row            <td><button popovertarget=row>?</button></tr>
 </table>
 
 <div id=curl popover>
+<button popovertarget=curl popovertargetaction=close>&times;</button>
 <img src=https://www.shutterstock.com/image-illustration/lever-seated-leg-curl-thighs-260nw-2327161935.jpg alt=>
 <p>Adjust machine so your lower back is against the seat and the thigh pad is just above your kneecap. Your legs should be straight without too much strain on the hamstring.
 <p>Contract your hamstring to close your leg until the foot pad cannot move further.
@@ -119,6 +139,7 @@ export default () => /*html*/ `
 </div>
 
 <div id=squat popover>
+<button popovertarget=squat popovertargetaction=close>&times;</button>
 <img src=https://w7.pngwing.com/pngs/222/252/png-transparent-squat-barbell-exercise-weight-training-lunge-barbell-squat.png alt=>
 <p>Place the bar on a rack at shoulder height. Facing the rack, duck under the bar and position it on the muscles behind your neck. Your knees should be a little bent.
 <p>Squat the bar up and off the rack. Step back with one foot, then the other, then slide one foot out to a roughly shoulder width stance.
@@ -128,10 +149,37 @@ export default () => /*html*/ `
 </div>
 
 <div id=ohp popover>
+<button popovertarget=ohp popovertargetaction=close>&times;</button>
 <img src=https://www.icfitnessclub.com/wp-content/uploads/2023/04/Standing-Overhead-Dumbbell-Shoulder-Press.webp alt=>
 <p>Press the dumbbells from the sides of your shoulders until arms are extended overhead. Lower to the start position and repeat.
 <p>You should feel this in the front/sides or your shoulders, and your triceps.
 </div>
 
+<div id=lat popover>
+<button popovertarget=lat popovertargetaction=close>&times;</button>
+<img src=https://www.shutterstock.com/image-illustration/reverse-grip-lat-pulldown-3d-260nw-430936258.jpg alt=>
+<p>Adjust thigh pads to secure you in place when seated. Grab the bar with a wide grip then sit down.
+<p>Pull the bar down to your upper chest, trying to squeeze your back muscles and not use your biceps.
+<p>You should feel this in your lats (the sides of your back).
+</div>
+
+<div id=chest popover>
+<button popovertarget=chest popovertargetaction=close>&times;</button>
+<img src=https://www.shutterstock.com/image-illustration/seated-chests-press-3d-illustration-260nw-419701345.jpg alt=>
+<p>Press the handles forward until your arms are locked. Lower back to your chest then repeat.
+<p>You should feel this in your pecs (chest muscles) and triceps.
+<p>Skip this exercise if you're running low on time.
+</div>
+
+<div id=row popover>
+<button popovertarget=row popovertargetaction=close>&times;</button>
+<img src=https://www.shutterstock.com/image-illustration/thrust-hummer-simulator-3d-illustration-260nw-429857680.jpg alt=>
+<p>Adjust the chest support so your arms are fully extended when you grip the handles.
+<p>Pull the handles towards you until your hands reach your chest, trying to squeeze your shoulder blades together.
+<p>You should feel this in your upper back.
+<p>Skip this exercise if you're running low on time.
+</div>
+
 <p>Weights are approximate—figure out the heaviest you can do to finish each set about 2 reps away from failure.
+<p>Every rep should be lowered slowly with control, but raised explosively with force.
 `;
