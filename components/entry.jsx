@@ -121,7 +121,7 @@ function Tags({ content }) {
   return (
     <ul class="EntryTags">
       {content.map((t) => (
-        <a href={`/tags/${slugify(t)}`}>#{t}</a>
+        <li><a href={`/tags/${slugify(t)}`}>#{t}</a></li>
       ))}
     </ul>
   );
