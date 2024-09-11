@@ -111,7 +111,7 @@ function Lightbox({ src, alt = " " }) {
       <summary>
         <img src={src} alt={alt} loading="lazy" />
       </summary>
-      <img src={src} loading="lazy" />
+      <img src={src} loading="lazy" alt="" />
     </details>
   );
 }
