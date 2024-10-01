@@ -121,13 +121,13 @@ export default () => /*html*/ `
 <h1>Georgia's programme</h1>
 
 <table>
-<tr><th>Weight<th>Sets<th>Reps<th>Exercise       <th>Help
-<tr><td>20kg  <td>2   <td>12  <td>Hamstring curl <td><button popovertarget=curl>?</button></tr>
-<tr><td>20kg  <td>2   <td>10  <td>Squat          <td><button popovertarget=squat>?</button></tr>
-<tr><td>05kg  <td>2   <td>10  <td>Shoulder press <td><button popovertarget=ohp>?</button></tr>
-<tr><td>14kg  <td>2   <td>12  <td>Lat pull down  <td><button popovertarget=lat>?</button></tr>
-<tr><td>10kg  <td>2   <td>12  <td>Chest press    <td><button popovertarget=chest>?</button></tr>
-<tr><td>15kg  <td>2   <td>12  <td>Row            <td><button popovertarget=row>?</button></tr>
+<tr><th><th>Weight<th>Sets<th>Reps<th>Exercise       <th>Help
+<tr><td><input type=checkbox><td>20kg  <td>2   <td>12  <td>Hamstring curl <td><button popovertarget=curl>?</button></tr>
+<tr><td><input type=checkbox><td>20kg  <td>2   <td>10  <td>Squat          <td><button popovertarget=squat>?</button></tr>
+<tr><td><input type=checkbox><td>05kg  <td>2   <td>10  <td>Shoulder press <td><button popovertarget=ohp>?</button></tr>
+<tr><td><input type=checkbox><td>14kg  <td>2   <td>12  <td>Lat pull down  <td><button popovertarget=lat>?</button></tr>
+<tr><td><input type=checkbox><td>10kg  <td>2   <td>12  <td>Chest press    <td><button popovertarget=chest>?</button></tr>
+<tr><td><input type=checkbox><td>15kg  <td>2   <td>12  <td>Row            <td><button popovertarget=row>?</button></tr>
 </table>
 
 <div id=curl popover>
