@@ -63,7 +63,7 @@ In this case we're assuming we have access to a `document` that contains a div w
 
 Most testing environments do not have access to a DOM. For convenience we usually like to runs tests from our terminal, or in a CI job when we push a PR to GitHub. It is possible to run tests in a real browser (e.g. using [QUnit](https://qunitjs.com/)), but almost nobody does anymore.
 
-So to test React components we need to create a fake DOM within our testing environment. This usually means using the [JSDom](https://github.com/jsdom/jsdom) library. I've [written about using JSDOM before](https://oliverjam.es/articles/frontend-testing-node-jsdom), so I won't go into detail now. Suffice to say it implements a large number of browser features in pure JavaScript so we can run code that is meant for the browser in Node or some other non-browser environment.
+So to test React components we need to create a fake DOM within our testing environment. This usually means using the [JSDom](https://github.com/jsdom/jsdom) library. I've [written about using JSDOM before](/articles/frontend-testing-node-jsdom), so I won't go into detail now. Suffice to say it implements a large number of browser features in pure JavaScript so we can run code that is meant for the browser in Node or some other non-browser environment.
 
 The simplest way to use JSDOM is via the [global-jsdom](https://github.com/modosc/global-jsdom) package. This sets up a DOM and all the globals you would expect to use in the browser (`window`, `document`, `console` etc). It's as simple as importing a file:
 

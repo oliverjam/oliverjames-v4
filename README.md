@@ -1,6 +1,6 @@
 # My place on the web
 
-This is my personal website, [oliverjam.es](https://oliverjam.es). It's where I experiment with some fun stuff and write blog posts. It is almost certainly over-engineered for the task of turning Markdown into HTML, since I wrote almost all the code from scratch. Currently (other than the Deno standard library) it has 3 external dependencies: `marked`, `yaml` and `prismjs`. I have no interest in writing a Markdown parser from scratch.
+This is my personal website, [oliverjam.com](https://oliverjam.com). It's where I experiment with some fun stuff and write blog posts. It is almost certainly over-engineered for the task of turning Markdown into HTML, since I wrote almost all the code from scratch. Currently (other than the Deno standard library) it has 3 external dependencies: `marked`, `yaml` and `prismjs`. I have no interest in writing a Markdown parser from scratch.
 
 ## Docs
 

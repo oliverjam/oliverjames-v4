@@ -43,7 +43,7 @@ An even smoother solution is to customise the default values, since they probabl
 
 ```bash
 npm config set init-author-name "Oliver Phillips" -g
-npm config set init-author-email "hello@oliverjam.es" -g
+npm config set init-author-email "hello@oliverjam.com" -g
 ```
 
 This will populate my name and email whenever I run `npm init -y`.

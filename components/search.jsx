@@ -25,7 +25,7 @@ export function Search() {
         <input type="hidden" name="kz" value="-1" />
         <input type="hidden" name="km" value="m" />
         <input type="hidden" name="k7" value="#fafef5" />
-        <input type="hidden" name="sites" value="oliverjam.es" />
+        <input type="hidden" name="sites" value="oliverjam.com" />
         <div class="grid pile items-center">
           <input
             type="search"

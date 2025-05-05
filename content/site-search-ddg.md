@@ -37,7 +37,7 @@ This is great, but there were two big reasons I couldn't use Google in the end. 
 
 You may be aware that the only way to get decent results out of Google nowadays is to add `site:reddit.com` to your search. This relies on Google's ability to search a single site rather than the whole web.
 
-This seemed perfect for my use-case. I could limit the results to `site:oliverjam.es` so visitors would only see my articles. Unfortunately as far as I can tell there's no way to configure this without adding it to the search query itself. I could have used JS to append it to the query on submit, but that goes against my "no JS unless absolutely necessary" goal.
+This seemed perfect for my use-case. I could limit the results to `site:oliverjam.com` so visitors would only see my articles. Unfortunately as far as I can tell there's no way to configure this without adding it to the search query itself. I could have used JS to append it to the query on submit, but that goes against my "no JS unless absolutely necessary" goal.
 
 This is when I discovered that DuckDuckGo has a way more robust set of search parameters for configuring results. They also use the `q` param for setting the query, but also support a `sites` param for specifying the domain to search.
 
@@ -47,7 +47,7 @@ Here's a form that searches this site on DuckDuckGo:
 <form action="https://duckduckgo.com">
   <label for="search">Search</label>
   <input name="q" id="search" />
-  <input type="hidden" name="sites" value="oliverjam.es" />
+  <input type="hidden" name="sites" value="oliverjam.com" />
 </form>
 ```
 
@@ -65,7 +65,7 @@ It seems like DuckDuckGo actually _want_ people to use this feature (shocking). 
 <form action="https://duckduckgo.com">
   <label for="search">Search</label>
   <input name="q" id="search" />
-  <input type="hidden" name="sites" value="oliverjam.es" />
+  <input type="hidden" name="sites" value="oliverjam.com" />
   <input type="hidden" name="ko" value="-2" />
   <input type="hidden" name="k1" value="-1" />
   <input type="hidden" name="kz" value="-1" />
@@ -133,7 +133,7 @@ export function Search() {
         <input type="hidden" name="kz" value="-1" />
         <input type="hidden" name="km" value="m" />
         <input type="hidden" name="k7" value="#fafef5" />
-        <input type="hidden" name="sites" value="oliverjam.es" />
+        <input type="hidden" name="sites" value="oliverjam.com" />
         <div class="grid pile items-center">
           <input
             type="search"

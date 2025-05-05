@@ -20,7 +20,7 @@ JSX is an extension to JavaScript that lets you write HTML-like syntax, which wo
 
 JSX also provides a nice developer experience. Since it's embedded within JS you just use JS features to generate elements. I like not really having to shift mindsets as I jump from business logic to UI code. The popularity of React means JSX has great tooling support. For example syntax highlighting, autocompletion, warnings about accessibility errors.
 
-That said, as much as I like JSX I don't want to write all my apps as React SPAs. Nowadays I default to [simple server-rendered apps](https://oliverjam.es/articles/simple-web-apps-bun). However I do still like using JSX to render HTML strings. This is nicer than using template literals, since they're just unstructured strings with none of the benefits listed above. It's also harder to compose components together, since function calls don't look like HTML. For example:
+That said, as much as I like JSX I don't want to write all my apps as React SPAs. Nowadays I default to [simple server-rendered apps](/articles/simple-web-apps-bun). However I do still like using JSX to render HTML strings. This is nicer than using template literals, since they're just unstructured strings with none of the benefits listed above. It's also harder to compose components together, since function calls don't look like HTML. For example:
 
 ```jsx
 html`

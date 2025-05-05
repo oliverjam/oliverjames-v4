@@ -50,7 +50,7 @@ function Bio() {
           <Link href="https://twitter.com/_oliverjam" aria-label="Twitter">
             <Icon name="twitter" size="24" />
           </Link>
-          <Link href="mailto://hello@oliverjam.es" aria-label="Email">
+          <Link href="mailto://hello@oliverjam.com" aria-label="Email">
             <Icon name="mail" size="24" />
           </Link>
         </div>
