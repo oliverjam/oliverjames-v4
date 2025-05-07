@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "jsx",
+  "exports": {
+    "./jsx-runtime": "./jsx-runtime.js",
+    "./jsx-dev-runtime": "./jsx-runtime.js"
+  }
+}
