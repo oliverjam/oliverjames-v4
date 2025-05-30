@@ -104,6 +104,8 @@ Bun supports JSX syntax _natively_, however by default it expects you to be usin
 
 For simple server-side apps I prefer [`@kitajs/html`](https://github.com/kitajs/html). Rather than constructing your UI as objects that must be converted to strings when you send a response, this turns the JSX directly into a string, saving a step.
 
+**Update:** I have written about [building my own JSX renderer](/articles/diy-jsx) and published it [as part of a library](https://github.com/oliverjam/hypa).
+
 JSX conversion is configured either in the specific config file for the runtime (`bunfig.toml`), or in a `tsconfig.json`/`jsconfig.json`. We'll use the latter since we want to keep this project runtime agnostic.
 
 ```json jsconfig.json
@@ -268,17 +270,18 @@ Running this will create a new file named `tasks.sqlite` in our working director
 We can now write SQL statements to create, list and remove tasks:
 
 ```js
-let _create_ = db.query(`insert into tasks (task) values (?)`);
-let create = (task) => _create.run(task);
+function create(task) {
+  return db.query(`insert into tasks (task) values (?)`).run(task);
+}
 
-let _list = db.query(`select * from tasks order by created desc`);
-let list = () => _list.all();
+function list() {
+  return db.query(`select * from tasks order by created desc`).all();
+}
 
-let _remove = db.query(`delete from tasks where id = ?`);
-let remove = (id) => _remove.run(id);
+function remove(id) {
+  return db.query(`delete from tasks where id = ?`).run(id);
+}
 ```
-
-We create the statements outside the functions, so they can be cached and reused for better performance.
 
 ### Tasks UI
 
