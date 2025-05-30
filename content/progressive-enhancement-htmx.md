@@ -11,6 +11,8 @@ intro: The HTMX library is getting a lot of hype lately. I thought I'd experimen
 
 This is a follow-up to my last article on [building simple server-rendered web apps](/articles/simple-web-apps-bun). We're going to enhance the user-experience of these apps with a little bit of client-side JS. If you want to skip the history lesson you can [jump to the fun code](#building-our-own-mini-htmx).
 
+**Update (May 2026):** I have published an improved version of what we built in this post as [Transclusion](https://github.com/oliverjam/transclusion).
+
 ## The lost art of progressive enhancement
 
 Progressive enhancement is the idea that you should layer more powerful features on top of functional basics. For example starting with a regular HTML form, then adding JS to intercept submits and update the page selectively rather than doing a full browser navigation.
