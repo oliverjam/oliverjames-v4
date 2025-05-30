@@ -10,6 +10,8 @@ intro: Most people associate JSX with React, but I really like using it as a gen
 
 I decided to write my own JSX renderer to better understand how it works (and to have a simple library I could use in side projects). You can skip all my rambling about why I like JSX and [jump straight to the code](#building-my-own).
 
+**Update (May 2026):** I published an improved version of this JSX renderer as part of my [server-side app library](https://github.com/oliverjam/hypa).
+
 ## What is JSX?
 
 JSX is an extension to JavaScript that lets you write HTML-like syntax, which would usually be invalid. This was invented for React, to make it easier to create DOM elements declaratively:
