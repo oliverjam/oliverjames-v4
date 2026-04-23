@@ -6,7 +6,7 @@ export default () => /*html*/ `
 <meta name=color-scheme content="light dark">
 <meta name=viewport content="width=device-width">
 <style>
-	* { 
+	* {
 		box-sizing: border-box;
 		margin: 0;
 	}
@@ -115,6 +115,14 @@ I enjoy nerding out about coffee and shaving bytes off my SVGs.
 
 <h2>Experience</h2>
 
+<h3>Supply25</h3>
+<h4>Lead fullstack engineer | April 2025-</h4>
+<ul>
+<li>First engineering hire working directly with CTO to build a SaaS system helping local governments manage procurement.
+<li>Responsible for a modern React frontend and AWS Lambda microservices. Focused on empowering the team with accessible, easy-to-use modular components.
+<li>Working closely with design to iterate quickly in response to business and customer requirements.
+</ul>
+
 <h3>The Delta Group</h3>
 <h4>Freelance fullstack engineer | Feb 2024-April 2024</h4>
 <ul>
@@ -185,14 +193,14 @@ Created a robust suite of tests with React Testing Library and Cypress to avoid 
 A <a href=https://rddit.netlify.app/r/all>modern frontend for Reddit</a> that I genuinely prefer using to the official website.
 Built in TypeScript with modern React Router for fast data fetching and lazy-loading slow Reddit API calls.
 <p><a href=https://github.com/oliverjam/reddit-app>github.com/oliverjam/reddit-app</a>
-	
+
 <h3>Hypa</h3>
 <p>
 The backend framework I've always wanted JavaScript to have.
 Just enough batteries included to build simple fullstack apps using JSX and SQLite.
 Still in-progress, but complete enough that I am building other projects with it.
 <p><a href=https://github.com/oliverjam/hypa>github.com/oliverjam/hypa</a>
-	
+
 <h3>Transclusion</h3>
 <p>
 A frontend library for declaratively adding interactivity to server-rendered apps.
